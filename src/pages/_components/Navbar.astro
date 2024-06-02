@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<nav
+  class="container mx-auto flex items-center justify-between p-4 lg:px-8"
+  aria-label="Global"
+>
+  <!-- logo -->
+  <div class="flex lg:flex-1">
+    <a href="#" class="-m-1.5 p-1.5">
+      <span class="sr-only">All Nepal Packers and Movers</span>
+      <img class="h-24 w-auto" src="/logo.svg" alt="" />
+    </a>
+  </div>
+  <!-- navigation elements -->
+  <div class="flex lg:hidden">
+    <button
+      type="button"
+      class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="hidden lg:flex lg:gap-x-12">
+    <a href="#" class="text-sm font-bold leading-8 text-gray-900"> About Us</a>
+    <a href="#" class="text-sm font-bold leading-8 text-gray-900"
+      >Moving Services</a
+    >
+    <a href="#" class="text-sm font-bold leading-8 text-gray-900">Blog</a>
+    <a href="#" class="text-sm font-bold leading-8 text-gray-900">Contact</a>
+  </div>
+  <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+    <a
+      href="tel:9843472589"
+      class="text-sm font-semibold leading-6 text-gray-900"
+    >
+      <div class="flex space-x-3 text-sky-600">
+        <Icon name="call" />
+        <span class="text-xl font-bold">9843472589</span>
+      </div>
+    </a>
+  </div>
+</nav>
+
+<style>
+  [data-icon="call"] {
+    font-size: 2rem;
+  }
+</style>

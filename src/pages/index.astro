@@ -1,0 +1,27 @@
+---
+// import { Icon } from "astro-icon/components";
+import { componentIsHTMLElement } from "astro/runtime/server/render/dom.js";
+import PageJSONLD from "./_components/PageJSONLD.astro";
+import Hero from "./_components/Hero.astro";
+import FeaturedPost from "./_components/FeaturedPost.astro";
+import MovingProcess from "./_components/Moving Process.astro";
+import Services from "./_components/Services.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <PageJSONLD />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Hero />
+    <FeaturedPost />
+    <MovingProcess />
+    <Services />
+  </body>
+</html>

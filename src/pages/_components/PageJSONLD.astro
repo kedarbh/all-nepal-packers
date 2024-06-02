@@ -1,0 +1,52 @@
+---
+const pageURL = new URL(Astro.url.pathname, Astro.site);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "@id": "MovingCompany",
+  name: "All Nepal Packers and Movers",
+  address: "Kathmandu, Nepal",
+  telephone: "984.347.2589",
+  image: "logo.svg", //update later on
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "984.347.2589",
+  },
+  memberOf: {
+    "@type": "Organization",
+    name: "ALL NEPAL PACKERS AND MOVERS",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    name: "ALL NEPAL PACKERS AND MOVERS",
+  },
+  brand: {
+    "@type": "Brand",
+    name: "ALL NEPAL PACKERS AND MOVERS",
+  },
+  sameAs: "https://allnepalmovers.com.np",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: 4.803349509073399,
+    reviewCount: 34,
+  },
+  review: {
+    "@type": "Review",
+    reviewBody:
+      "Our moving team was absolutely amazing. They were super helpful and very pleasant to work with. If I need to move again I will definitely want to work with them. ",
+    datePublished: "May 30",
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    author: {
+      "@type": "Person",
+      name: "Elina",
+    },
+  },
+  url: pageURL,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
