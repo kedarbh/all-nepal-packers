@@ -1,0 +1,19 @@
+---
+import BaseHead, {
+  type Props as HeadProps,
+} from "~/components/common/BaseHead.astro";
+
+const { ...head } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {...head} />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
