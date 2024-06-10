@@ -1,14 +1,8 @@
 ---
-import Mobilenav from "./MobileNav.astro";
-import Navbar from "./Navbar.astro";
+
 ---
 
 <div class="container mx-auto bg-white">
-  <header class="absolute inset-x-0 top-0 z-50">
-    <Navbar />
-    <Mobilenav />
-  </header>
-
   <div class="relative isolate px-6 pt-14 lg:px-8">
     <!-- <div
       class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -43,7 +37,10 @@ import Navbar from "./Navbar.astro";
       <div
         class="w-full sm:w-2/3 lg:absolute top-48 right-0 bottom-0 mt-16 lg:mr-8 -z-10"
       >
-        <img src="/hero-image.svg" />
+        <img
+          src="/hero-image.svg"
+          alt="hero banner image showing movers loading boxes in a truck"
+        />
       </div>
     </div>
     <!-- hero content end -->

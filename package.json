@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "@playform/compress": "0.0.10",
+    "@tailwindcss/typography": "^0.5.13",
+    "date-fns": "^3.6.0",
     "smartypants": "^0.2.2"
   }
 }

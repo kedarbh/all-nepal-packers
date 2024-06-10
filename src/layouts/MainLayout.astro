@@ -2,6 +2,7 @@
 import BaseHead, {
   type Props as HeadProps,
 } from "~/components/common/BaseHead.astro";
+import Header from "~/components/common/Header.astro";
 
 const { ...head } = Astro.props;
 ---
@@ -13,7 +14,8 @@ const { ...head } = Astro.props;
   </head>
   <body>
     <main>
-      <slot />
+      <Header />
+      <slot class="py-32 sm:py-48" />
     </main>
   </body>
 </html>
