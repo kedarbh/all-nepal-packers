@@ -7,11 +7,20 @@ const schema = {
   "@id": "MovingCompany",
   name: "All Nepal Packers and Movers",
   address: "Kathmandu, Nepal",
-  telephone: "984.347.2589",
+  telephone: "+9779843472589",
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 27.739389,
+      longitude: 85.338581,
+    },
+    geoRadius: 25000,
+  },
   image: "logo.svg", //update later on
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "984.347.2589",
+    telephone: "+9779843472589",
   },
   memberOf: {
     "@type": "Organization",

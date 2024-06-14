@@ -21,7 +21,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<MainLayout>
+<MainLayout title={post.data.title}>
   <div class="mx-auto max-w-2xl my-40">
     <article class="prose prose-slate">
       <h1 class="">
