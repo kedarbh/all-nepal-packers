@@ -9,13 +9,11 @@ const blogEntries = await getCollection("blog");
 <MainLayout title="Blog">
   <div class="py-44 sm:py-48">
     <BlogPostListing
-      blogPosts={blogEntries
-        .sort(
-          (post1, post2) =>
-            new Date(post2.data.publishedDate) -
-            new Date(post1.data.publishedDate)
-        )
-        .slice(0, 3)}
+      blogPosts={blogEntries.sort(
+        (post1, post2) =>
+          new Date(post2.data.publishedDate) -
+          new Date(post1.data.publishedDate)
+      )}
     />
   </div>
 </MainLayout>

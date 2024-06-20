@@ -4,9 +4,9 @@ description: "Planning a move? Learn everything you need to know about packers a
 publishedDate: "June 7, 2024"
 author: 'All Nepal Packer'
 lang: "en"
-image:
-    url: '/og.png'
-    alt: 'blog image'
+coverImage: './og.png'
+imageAlt: "Advanced Packing Techniques for a Smooth Moving Experience"
+
 tags: ["movers and packers", "moving company", "relocation"]
 ---
 
