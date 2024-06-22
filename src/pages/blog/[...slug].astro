@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import MainLayout from "~/layouts/MainLayout.astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -18,19 +19,36 @@ type Props = {
 };
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { data, render } = post;
+const { Content } = await render();
+
 ---
 
-<MainLayout title={post.data.title}>
-  <div class="mx-auto max-w-2xl my-40">
-    <article class="prose prose-slate">
-      <h1 class="">
-        {post.data.title}
-      </h1>
-      <time datetime={post.data.publishedDate} class="text-gray-500"
-        >{post.data.publishedDate.toDateString()}</time
-      >
-      <Content />
-    </article>
+<MainLayout
+  title={data.title}
+  description={data.description}
+  coverImage={data.coverImage}
+  pageType="article"
+>
+  <div class="grid-container relative mx-auto max-w-screen-md md:z-10 mt-40">
+    <div
+      class="mx-auto w-fit max-w-full py-8 px-6 md:px-10 md:py-12 lg:px-12 lg:py-16 xl:p-16 xl:py-20"
+    >
+      <header class="pb-10">
+        <h1 class="text-4xl font-bold">
+          {post.data.title}
+        </h1>
+        <time datetime={post.data.publishedDate} class="text-gray-500"
+          >{post.data.publishedDate.toDateString()}</time
+        >
+      </header>
+      <div class="py-5">
+        <Image src={data.coverImage} alt={data.title} />
+      </div>
+
+      <article class="prose prose-slate">
+        <Content />
+      </article>
+    </div>
   </div>
 </MainLayout>

@@ -1,0 +1,85 @@
+---
+const pageURL = new URL(Astro.url.pathname, Astro.site);
+const { data } = Astro.props;
+
+const { title, publishedDate, description, coverImage, tags } = data;
+
+const resolvedImage = {
+  src: new URL(coverImage.src, Astro.site).toString(),
+  alt: title,
+};
+
+const blogPostSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": pageURL + "/#BlogPosting",
+  mainEntityOfPage: pageURL,
+  headline: title,
+  name: title,
+  description: description,
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  author: {
+    "@type": "Organization",
+    name: "All Nepal Packers and Movers",
+    url: "https://allnepalmovers.com.np/",
+    image: {
+      "@type": "ImageObject",
+      "@id": "https://allnepalmovers.com.np/logo.svg",
+      url: "https://allnepalmovers.com.np/logo.svg",
+      height: "96",
+      width: "156",
+    },
+  },
+  image: {
+    "@type": "ImageObject",
+    "@id": resolvedImage.src,
+    url: resolvedImage.src,
+    width: coverImage.width,
+    height: coverImage.height,
+  },
+  url: pageURL,
+  isPartOf: {
+    "@type": "Blog",
+    "@id": "https://allnepalmovers.com.np/blog",
+    name: "All Nepal Packers and Movers Blog",
+    publisher: {
+      "@type": "Organization",
+      "@id": "https://allnepalpackers.com.np",
+      name: "All Nepal Packers and Movers",
+    },
+    keywords: tags,
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "All Nepal Packers and Movers",
+      item: "https://allnepalmovers.com.np/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://allnepalmovers.com.np/blog",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: title,
+      item: pageURL,
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(blogPostSchema)} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>

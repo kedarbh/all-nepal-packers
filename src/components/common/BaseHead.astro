@@ -4,13 +4,15 @@ import siteInfo from "~/data/site-info";
 import SEO from "./SEO.astro";
 import Favicon from "./Favicon.astro";
 import Analytics from "./Analytics.astro";
-import PageJSONLD from "~/pages/_components/PageJSONLD.astro";
+import PageJSONLD from "~/components/common/schemas/PageJSONLD.astro";
+import ArticleJSONLD from "./schemas/articleJSONLD.astro";
 
 export type Props = {
   title?: string;
   rawTitle?: string;
   description?: string;
   image?: { src: string; alt: string };
+  coverImage?: { src: string; alt: string };
   canonicalURL?: URL | null;
   pageType?: "website" | "article";
 };
@@ -23,6 +25,7 @@ const {
   image = siteInfo.image,
   canonicalURL = new URL(Astro.request.url, Astro.site),
   pageType = "website",
+  coverImage,
 } = Astro.props;
 
 const title =
@@ -31,10 +34,12 @@ const resolvedImage = {
   src: new URL(image.src, Astro.site).toString(),
   alt: image.alt,
 };
+
+const data = { title, description, pageType, coverImage };
 ---
 
 <!-- High Priority Global Metadata -->
-<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <title set:html={smartypants(title, 1)} />
 <meta name="generator" content={Astro.generator} />
@@ -43,7 +48,18 @@ const resolvedImage = {
 <Analytics />
 
 <!-- schema snippet -->
-<PageJSONLD />
+
+<!-- <ArticleJSONLD {data} /> -->
+{
+  pageType == "website" ? (
+    <PageJSONLD />
+  ) : (
+    <>
+      <PageJSONLD />
+      <ArticleJSONLD {data} />
+    </>
+  )
+}
 
 <!-- Low Priority Global Metadata -->
 <Favicon />

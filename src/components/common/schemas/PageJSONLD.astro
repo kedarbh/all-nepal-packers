@@ -1,0 +1,100 @@
+---
+const pageURL = new URL(Astro.url.pathname, Astro.site);
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "@id": "MovingCompany",
+  name: "All Nepal Packers and Movers",
+  address: "Kathmandu, Nepal",
+  email: "allnepalmovers@gmail.com",
+  logo: "https://allnepalmovers.com.np/logo.svg",
+  telephone: "+9779843472589",
+  url: "https://allnepalmovers.com.np",
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 27.739389,
+      longitude: 85.338581,
+    },
+    geoRadius: 25000,
+  },
+  image: "https:allnepalmovers.com.np/og.png",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+9779843472589",
+  },
+  memberOf: {
+    "@type": "Organization",
+    name: "ALL NEPAL PACKERS AND MOVERS",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    name: "ALL NEPAL PACKERS AND MOVERS",
+  },
+  brand: {
+    "@type": "Brand",
+    name: "ALL NEPAL PACKERS AND MOVERS",
+  },
+  sameAs: [
+    "https://allnepalmovers.com.np",
+    "https://x.com/AllNepalMovers",
+    "https://x.com/AllNepalMovers",
+    "https://www.facebook.com/AllNepalPackersAndMovers",
+    "https://www.tiktok.com/@allnepalpackersandmovers",
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: 4.8,
+    bestRating: 5,
+    worstRating: 0,
+    ratingCount: 66,
+    reviewCount: 66,
+  },
+  review: {
+    "@type": "Review",
+    reviewBody:
+      "I have used all nepal packers and movers to move to my new house. I hired them for the packing and moving services. Their team took good care of my belonging and made my move smooth. Highly recommend their shifting services. They have good team and resources for small flat shifting to a complete residential move.",
+    datePublished: "2024-06-13",
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    author: {
+      "@type": "Person",
+      name: "Madhusudan Dangal",
+    },
+  },
+};
+
+
+//add website schema for homepage
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://allnepalmovers.com.np/#website",
+  url: pageURL,
+  name: "All Nepal Packers and Movers",
+  description: "Moving Home, Office, flat and Motorbikes",
+  publisher: { "@id": "https://allnepalmovers.com.np/#organization" },
+  potentialAction: [
+    {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://allnepalmovers.com.np/?s={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  ],
+  inLanguage: "en-US",
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(organizationSchema)}
+/>
+<script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
