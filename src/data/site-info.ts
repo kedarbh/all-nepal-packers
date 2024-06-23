@@ -22,8 +22,8 @@ export type SiteInfo ={
 
 const siteInfo: SiteInfo ={
   name: "All Nepal Packers and Movers",
-  title: "Stress-Free Moves in Kathmandu: Get a Free Quote Today!",
-  description: "Moving in Kathmandu? All Nepal Packers and Movers offers hassle-free relocation services with expert movers, competitive rates, and all the support you need for a smooth transition. Get a free quote now!",
+  title: "Stress-Free Movers in Kathmandu",
+  description: "Move in Lalitpur?  All Nepal Packers: Expert movers, budget-friendly rates. Get a FREE quote today!",
   image: {
     src: "/og.png",
     alt: "Get a quote for smooth move",

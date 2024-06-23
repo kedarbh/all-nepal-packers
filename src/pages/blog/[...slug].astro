@@ -21,13 +21,14 @@ type Props = {
 const { post } = Astro.props;
 const { data, render } = post;
 const { Content } = await render();
-
 ---
 
 <MainLayout
   title={data.title}
   description={data.description}
   coverImage={data.coverImage}
+  tags={data.tags}
+  publishedDate={data.publishedDate}
   pageType="article"
 >
   <div class="grid-container relative mx-auto max-w-screen-md md:z-10 mt-40">

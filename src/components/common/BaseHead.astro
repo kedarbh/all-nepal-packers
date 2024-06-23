@@ -11,6 +11,8 @@ export type Props = {
   title?: string;
   rawTitle?: string;
   description?: string;
+  publishedDate?: string;
+  tags?: string;
   image?: { src: string; alt: string };
   coverImage?: { src: string; alt: string };
   canonicalURL?: URL | null;
@@ -26,6 +28,8 @@ const {
   canonicalURL = new URL(Astro.request.url, Astro.site),
   pageType = "website",
   coverImage,
+  tags,
+  publishedDate,
 } = Astro.props;
 
 const title =
@@ -35,7 +39,7 @@ const resolvedImage = {
   alt: image.alt,
 };
 
-const data = { title, description, pageType, coverImage };
+const data = { title, description, publishedDate, tags, pageType, coverImage };
 ---
 
 <!-- High Priority Global Metadata -->
