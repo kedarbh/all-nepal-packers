@@ -22,7 +22,7 @@ export type SiteInfo ={
 
 const siteInfo: SiteInfo ={
   name: "All Nepal Packers and Movers",
-  title: "Stress-Free Movers in Kathmandu",
+  title: "Affordable Packers & Movers Near You",
   description: "Move in Lalitpur?  All Nepal Packers: Expert movers, budget-friendly rates. Get a FREE quote today!",
   image: {
     src: "/og.png",

@@ -4,7 +4,7 @@ description: "Discover expert tips and strategies for organizing and declutterin
 publishedDate: "June 10, 2024"
 author: 'All Nepal Packer'
 lang: "en"
-coverImage: './og.png'
+coverImage: './cover.jpg'
 imageAlt: "A colorful scene shows a delivery truck and a red van overflowing with boxes."
 tags: ["Packing Tips", "Moving Tips", "relocation"]
 

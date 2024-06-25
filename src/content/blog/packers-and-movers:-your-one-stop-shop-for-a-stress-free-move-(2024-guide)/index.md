@@ -4,7 +4,7 @@ description: "Planning a move? Learn everything you need to know about packers a
 publishedDate: "June 9, 2024"
 author: 'All Nepal Packers and Movers'
 lang: "en"
-coverImage: './og.png'
+coverImage: './cover.jpg'
 imageAlt: "A colorful scene shows a delivery truck and a red van overflowing with boxes."
 tags: ["Packing Tips", "Moving Tips", "relocation"]
 ---

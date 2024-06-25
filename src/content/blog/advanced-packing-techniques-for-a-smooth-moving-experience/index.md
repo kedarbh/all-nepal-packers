@@ -4,11 +4,12 @@ description: "Planning a move? Learn everything you need to know about packers a
 publishedDate: "June 7, 2024"
 author: 'All Nepal Packer'
 lang: "en"
-coverImage: './og.png'
+coverImage: './cover.jpg'
 imageAlt: "Advanced Packing Techniques for a Smooth Moving Experience"
 
 tags: ["movers and packers", "moving company", "relocation"]
 ---
+<p class="text-sm text-gray-400 text-center">Photo by <a href="https://unsplash.com/@hiveboxx?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="text-gray-400">HiveBoxx</a> on <a href="https://unsplash.com/photos/woman-in-pink-sweater-standing-beside-brown-wooden-kitchen-cabinet-bLSe4JO5YF4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="text-gray-400">Unsplash</a></p>
 
 Discover expert packing techniques to make your next move stress-free and efficient.
 
