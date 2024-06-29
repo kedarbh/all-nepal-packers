@@ -13,7 +13,12 @@ const { title, publishedDate, coverImage, description } = post.data;
 
 <div class="rounded overflow-hidden shadow-lg flex flex-col">
   <a href={`/blog/${post.slug}`} aria-label={title}>
-    <Image src={coverImage} class="w-full object-cover" alt={title} />
+    <Image
+      src={coverImage}
+      class="w-full object-cover"
+      alt={title}
+      aria-label={title}
+    />
     <div class="px-6 py-4 mb-auto">
       <h3
         class="mb-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600"

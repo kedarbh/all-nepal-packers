@@ -9,12 +9,11 @@ import BlogPostListing from "../components/BlogPostListing.astro";
 const blogEntries = await getCollection("blog");
 ---
 
-<MainLayout title="Best Packers and Movers in Nepal"                                                                                    >
+<MainLayout title="Best Packers and Movers in Nepal">
   <Hero />
   <FeaturedPost />
   <MovingProcess />
   <Services />
-
   <BlogPostListing
     blogPosts={blogEntries
       .sort(
