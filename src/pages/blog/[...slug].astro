@@ -44,7 +44,14 @@ const { Content } = await render();
         >
       </header>
       <div class="py-5">
-        <Image src={data.coverImage} alt={data.title} />
+        <Image
+          src={data.coverImage}
+          widths={[240, 540, 720, data.coverImage.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${data.coverImage.width}px`}
+          alt={data.title}
+          loading="eager"
+          fetchpriority="high"
+        />
       </div>
 
       <article class="prose prose-slate">

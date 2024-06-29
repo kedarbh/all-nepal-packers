@@ -6,8 +6,11 @@ import BlogPostListing from "~/components/BlogPostListing.astro";
 const blogEntries = await getCollection("blog");
 ---
 
-<MainLayout title="Blog">
-  <div class="py-44 sm:py-48">
+<MainLayout
+  title="Blog"
+  description="Explore expert advice, tips, and guides on packing, moving, and more. Make your next move stress-free and easy with our comprehensive blog!"
+>
+  <div class="py-24 sm:py-24">
     <BlogPostListing
       blogPosts={blogEntries.sort(
         (post1, post2) =>
