@@ -6,8 +6,12 @@ const organizationSchema = {
   "@type": "MovingCompany",
   "@id": "MovingCompany",
   name: "All Nepal Packers and Movers",
-  address: "Kathmandu, Nepal",
-  addressCountry:"Nepal",
+  address: {
+    streetAddress: "Narayan Gopal Chowk, Maharajgunj",
+    addressLocality: "Kathmandu",
+    postalCode: "44600",
+    addressCountry: "NP",
+  },
   email: "allnepalmovers@gmail.com",
   logo: "https://allnepalmovers.com.np/logo.svg",
   telephone: "+9779843472589",
@@ -15,6 +19,8 @@ const organizationSchema = {
   areaServed: {
     "@type": "Country",
     name: "NP",
+    sameAs: "https://en.wikipedia.org/wiki/Nepal",
+    // 27.688820, 85.316576
   },
   image: "https:allnepalmovers.com.np/og.png",
   contactPoint: {
@@ -36,9 +42,10 @@ const organizationSchema = {
   sameAs: [
     "https://allnepalmovers.com.np",
     "https://x.com/AllNepalMovers",
-    "https://x.com/AllNepalMovers",
     "https://www.facebook.com/AllNepalPackersAndMovers",
     "https://www.tiktok.com/@allnepalpackersandmovers",
+    "https://www.google.com/search?kgmid=/g/11vy41n_kz", //Knowledge panel link
+    "https://www.google.com/maps/place/?cid=8372349515817937419", //GMB Link with CID
   ],
   aggregateRating: {
     "@type": "AggregateRating",
@@ -62,6 +69,7 @@ const organizationSchema = {
       name: "Madhusudan Dangal",
     },
   },
+  "priceRange": "$",
 };
 
 //add website schema for homepage

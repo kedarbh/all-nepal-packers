@@ -32,8 +32,7 @@ const {
   publishedDate,
 } = Astro.props;
 
-const title =
-  rawTitle ?? [Astro.props.title, siteInfo.name].filter(Boolean).join(" | ");
+const title = rawTitle ?? [Astro.props.title].filter(Boolean).join(" | "); //,siteInfo.name
 const resolvedImage = {
   src: new URL(image.src, Astro.site).toString(),
   alt: image.alt,
@@ -69,6 +68,10 @@ const data = { title, description, publishedDate, tags, pageType, coverImage };
 <Favicon />
 <link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="geo.region" content="NP-BA" />
+<meta name="geo.placename" content="Kathmandu" />
+<meta name="geo.position" content="27.708317;85.320582" />
+<meta name="ICBM" content="27.708317, 85.320582" />
 
 <SEO
   name={siteInfo.name}
