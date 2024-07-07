@@ -46,5 +46,6 @@ const { ...head } = Astro.props;
         mobileNav.className = mobileNav.className === "hidden" ? "" : "hidden";
       });
     </script>
+    <slot name="pageScript" />
   </body>
 </html>
