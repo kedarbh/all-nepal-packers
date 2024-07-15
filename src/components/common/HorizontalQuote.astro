@@ -1,0 +1,87 @@
+---
+
+---
+
+<h1 class="text-3xl font-bold mb-4">Moving Quote Request</h1>
+<form class="flex space-x-4">
+  <div class="w-full">
+    <label for="fullName" class="block mb-2 text-sm font-bold text-gray-700"
+      >Full Name</label
+    >
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+      required
+    />
+  </div>
+  <div class="w-full">
+    <label for="phoneNumber" class="block mb-2 text-sm font-bold text-gray-700"
+      >Phone Number</label
+    >
+    <input
+      type="tel"
+      id="phoneNumber"
+      name="phoneNumber"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+      required
+    />
+  </div>
+  <div class="w-full">
+    <label for="email" class="block mb-2 text-sm font-bold text-gray-700"
+      >Email Address</label
+    >
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+      required
+    />
+  </div>
+</form>
+<form class="flex space-x-4 mt-4">
+  <div class="w-full">
+    <label for="movingFrom" class="block mb-2 text-sm font-bold text-gray-700"
+      >Moving From</label
+    >
+    <input
+      type="text"
+      id="movingFrom"
+      name="movingFrom"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+    />
+  </div>
+  <div class="w-full">
+    <label for="movingTo" class="block mb-2 text-sm font-bold text-gray-700"
+      >Moving To</label
+    >
+    <input
+      type="text"
+      id="movingTo"
+      name="movingTo"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+    />
+  </div>
+  <div class="w-full">
+    <label for="movingType" class="block mb-2 text-sm font-bold text-gray-700"
+      >Moving Type</label
+    >
+    <select
+      id="movingType"
+      name="movingType"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+    >
+      <option value="">Select Moving Type</option>
+      <option value="local">Local Move</option>
+      <option value="long-distance">Long Distance Move</option>
+    </select>
+  </div>
+</form>
+<button
+  type="submit"
+  class="inline-flex items-center px-4 py-2 bg-indigo-500 text-white font-bold rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+>
+  Get Quote
+</button>

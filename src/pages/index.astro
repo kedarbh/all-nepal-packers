@@ -6,13 +6,12 @@ import Services from "./_components/Services.astro";
 import MainLayout from "~/layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import BlogPostListing from "../components/BlogPostListing.astro";
-import QuoteTop from "~/components/common/QuoteTop.astro";
+
 const blogEntries = await getCollection("blog");
 ---
 
 <MainLayout title="Best Packers and Movers in Nepal">
   <Hero />
-  <!-- <QuoteTop /> -->
   <FeaturedPost />
   <MovingProcess />
   <Services />

@@ -1,0 +1,196 @@
+---
+
+---
+
+<div>
+  <form id="movingForm">
+    <div class="space-y-12">
+      <div class="pb-2">
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-3">
+            <label
+              for="full-name"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Full Name</label
+            >
+            <div class="mt-2">
+              <input
+                type="text"
+                name="name"
+                required
+                id="full-name"
+                autocomplete="given-name"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label
+              for="phone-number"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Phone Number</label
+            >
+            <div class="mt-2">
+              <input
+                type="tel"
+                name="phone"
+                id="phone-number"
+                autocomplete="tel-national"
+                pattern="[0-9]{10}"
+                required
+                title="Mobile Number should be 10 digit long"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label
+              for="email"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Email address</label
+            >
+            <div class="mt-2">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label
+              for="move-type"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Move Type</label
+            >
+            <div class="mt-2">
+              <select
+                id="move-type"
+                name="moveType"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+              >
+                <option value="Apartment">Apartment</option>
+                <option value="Flat">Flat</option>
+                <option value="House">House</option>
+                <option value="Office">Office</option>
+                <option value="Motorbike">Motorbike</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 sm:col-start-1">
+            <label
+              for="move-from"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Moving From</label
+            >
+            <div class="mt-2">
+              <input
+                type="text"
+                name="moveFrom"
+                id="move-from"
+                required
+                autocomplete="address-level2"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label
+              for="move-to"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Moving To</label
+            >
+            <div class="mt-2">
+              <input
+                type="text"
+                name="moveTo"
+                id="move-to"
+                required
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex items-center gap-x-6">
+      <button
+        type="submit"
+        class="w-full rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >Get a Quote</button
+      >
+    </div>
+  </form>
+</div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalMessage"></p>
+  </div>
+</div>
+
+<script>
+  let modal = document.getElementById("myModal");
+  let modalMessage = document.getElementById("modalMessage");
+
+  // Function to show the modal
+  function showModal(message: string) {
+    // Set the message in the modal
+    modalMessage.textContent = message;
+
+    // Show the modal
+    modal.style.display = "block";
+
+    // Add event listener to close the modal when the close button is clicked
+    var closeButton = document.getElementsByClassName("close")[0];
+    closeButton.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  }
+
+  document
+    .getElementById("movingForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Show the modal immediately to indicate form submission is in progress
+      showModal("Submitting form...");
+
+      const formData = new FormData(this);
+
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzSIlF1Ju5r4C00uU94x1hCE7mR6NAOPmQk8cniaZWwC1YAkJmmLZLV_rSlhb_tjlAGrg/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.text();
+        })
+        .then((data) => {
+          if (data.startsWith("Error:")) {
+            throw new Error(data);
+          } else {
+            showModal("Form submitted successfully!");
+            document.getElementById("movingForm").reset();
+          }
+        })
+        .catch((error) => {
+          showModal("Form submission failed: " + error.message);
+        });
+    });
+</script>

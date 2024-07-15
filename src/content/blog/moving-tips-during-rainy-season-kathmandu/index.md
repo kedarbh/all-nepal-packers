@@ -5,7 +5,7 @@ publishedDate: "July 05, 2024"
 author: 'All Nepal Packer'
 lang: "en"
 coverImage: './move-rainy-season-kathmandu.jpg'
-imageAlt: "A colorful scene shows a delivery truck and a red van overflowing with boxes."
+imageAlt: "A rainy scene shows a delivery truck and a person with boxes."
 
 tags: ["packers and movers", "moving company", "packing tips", "move during rain"]
 ---

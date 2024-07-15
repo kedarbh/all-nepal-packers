@@ -40,13 +40,11 @@
 </style>
 
 <div
-  class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
+  class="mx-auto max-w-screen-xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-8"
 >
-  <div class="shadow-sm rounded-xl bg-indigo-50">
+  <div class="shadow-sm bg-indigo-50">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-      <div
-        class="bg-indigo-600 rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none flex items-center px-10 py-10 text-indigo-50"
-      >
+      <div class="flex items-center px-10 py-10 bg-indigo-600 text-indigo-50">
         <div>
           <h2 class="font-bold text-3xl py-3">Have a plan to Moving?</h2>
           <p>We are ready to help</p>
@@ -54,12 +52,7 @@
       </div>
 
       <div class="px-5 pb-10">
-        <form
-          action="https://script.google.com/macros/s/AKfycbx57A00HpSdGpouqcXik1j_8oZz9gByV98wK4fkYdCS/dev"
-          target="_self"
-          method="POST"
-          id="quoteForm"
-        >
+        <form id="movingForm">
           <div class="space-y-12">
             <div class="pb-2">
               <div
@@ -97,6 +90,7 @@
                       autocomplete="tel-national"
                       pattern="[0-9]{10}"
                       required
+                      title="Mobile Number should be 10 digit long"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -129,7 +123,7 @@
                   <div class="mt-2">
                     <select
                       id="move-type"
-                      name="type"
+                      name="moveType"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
                       <option value="Apartment">Apartment</option>
@@ -150,8 +144,9 @@
                   <div class="mt-2">
                     <input
                       type="text"
-                      name="from"
+                      name="moveFrom"
                       id="move-from"
+                      required
                       autocomplete="address-level2"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -167,8 +162,9 @@
                   <div class="mt-2">
                     <input
                       type="text"
-                      name="to"
+                      name="moveTo"
                       id="move-to"
+                      required
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -197,7 +193,6 @@
 </div>
 
 <script>
-  let form = document.getElementById("quoteForm");
   let modal = document.getElementById("myModal");
   let modalMessage = document.getElementById("modalMessage");
 
@@ -216,33 +211,39 @@
     });
   }
 
-  // Add event listener to the form submission
-  form.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the default form submission
+  document
+    .getElementById("movingForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    // Show the modal immediately to indicate form submission is in progress
-    showModal("Submitting form...");
+      // Show the modal immediately to indicate form submission is in progress
+      showModal("Submitting form...");
 
-    // Perform an AJAX request to submit the form
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", this.action);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          // Successful response
-          var response = xhr.responseText;
+      const formData = new FormData(this);
 
-          showModal(response); // Show the modal with the response message
-          form.reset(); //Clear the form fields
-        } else {
-          console.log(response);
-          // Error response
-          var response = xhr.responseText;
-          showModal(response);
-          // showModal("Error: Something went wrong."); // Show a generic error message
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzSIlF1Ju5r4C00uU94x1hCE7mR6NAOPmQk8cniaZWwC1YAkJmmLZLV_rSlhb_tjlAGrg/exec",
+        {
+          method: "POST",
+          body: formData,
         }
-      }
-    };
-    xhr.send(new FormData(this));
-  });
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.text();
+        })
+        .then((data) => {
+          if (data.startsWith("Error:")) {
+            throw new Error(data);
+          } else {
+            showModal("Form submitted successfully!");
+            document.getElementById("movingForm").reset();
+          }
+        })
+        .catch((error) => {
+          showModal("Form submission failed: " + error.message);
+        });
+    });
 </script>
