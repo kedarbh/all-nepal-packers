@@ -12,15 +12,57 @@ const organizationSchema = {
     postalCode: "44600",
     addressCountry: "NP",
   },
+
+  // "geo": {
+  //   "@type": "GeoCoordinates",
+  //   "latitude": "27.688820",
+  //   "longitude": "85.316576"
+  // },
   email: "allnepalmovers@gmail.com",
   logo: "https://allnepalmovers.com.np/logo.svg",
   telephone: "+9779843472589",
   url: "https://allnepalmovers.com.np",
-  areaServed: {
-    "@type": "Country",
-    name: "NP",
-    sameAs: "https://en.wikipedia.org/wiki/Nepal",
-    // 27.688820, 85.316576
+  areaServed: [
+    {
+      "@type": "place",
+      name: "Kathmandu",
+      sameAs: "https://en.wikipedia.org/wiki/Kathmandu",
+      // 27.688820, 85.316576
+    },
+    {
+      "@type": "place",
+      name: "Lalitpur",
+      sameAs: "https://en.wikipedia.org/wiki/Lalitpur,_Nepal",
+    },
+    {
+      "@type": "place",
+      name: "Bhaktapur",
+      sameAs: "https://en.wikipedia.org/wiki/Bhaktapur",
+    },
+    {
+      "@type": "place",
+      name: "Pokhhara",
+      sameAs: "https://en.wikipedia.org/wiki/Pokhara",
+    },
+    {
+      "@type": "place",
+      name: "Itahari",
+      sameAs: "https://en.wikipedia.org/wiki/Itahari",
+    },
+  ],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
   },
   image: "https:allnepalmovers.com.np/og.png",
   contactPoint: {
@@ -52,8 +94,8 @@ const organizationSchema = {
     ratingValue: 4.8,
     bestRating: 5,
     worstRating: 0,
-    ratingCount: 66,
-    reviewCount: 66,
+    ratingCount: 150,
+    reviewCount: 150,
   },
   review: {
     "@type": "Review",
@@ -69,7 +111,7 @@ const organizationSchema = {
       name: "Madhusudan Dangal",
     },
   },
-  "priceRange": "$",
+  priceRange: "$",
 };
 
 //add website schema for homepage
