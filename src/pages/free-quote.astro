@@ -1,6 +1,6 @@
 ---
-import QuoteBanner from "~/components/QuoteBanner.astro";
-import MainLayout from "~/layouts/MainLayout.astro";
+import QuoteBanner from "@components/QuoteBanner.astro";
+import MainLayout from "@layouts/MainLayout.astro";
 
 const title = "Free Moving Quotes in Nepal";
 const description =
@@ -8,7 +8,7 @@ const description =
 ---
 
 <MainLayout {title} {description}>
-  <div class="mt-32">
+  <div>
     <QuoteBanner />
   </div>
 </MainLayout>

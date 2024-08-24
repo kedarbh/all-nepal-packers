@@ -26,7 +26,7 @@ const siteInfo: SiteInfo ={
   description: "Best Moving Company in Nepal with expert packers and movers, budget-friendly rates. Get your FREE quote today!",
   image: {
     src: "/og.png",
-    alt: "Top Packer and movers in Nepal",
+    alt: "Top Packers and movers in Nepal",
   },
   socialLinks: [
     {

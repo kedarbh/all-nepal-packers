@@ -1,21 +1,21 @@
 ---
 import { getCollection } from "astro:content";
-import MainLayout from "~/layouts/MainLayout.astro";
-import BlogPostListing from "~/components/BlogPostListing.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import BlogPostListing from "@components/BlogPostListing.astro";
 
 const blogEntries = await getCollection("blog");
 ---
 
 <MainLayout
   title="Blog on Packing and Moving"
-  description="Explore expert advice, tips, and guides on packing, moving, and more. Make your next move stress-free and easy with our comprehensive blog!"
+  description="Explore moving advice, tips, and guides on packing, and more. Make your next move stress-free and easy with our comprehensive blog!"
 >
   <div class="py-24 sm:py-24">
     <BlogPostListing
       blogPosts={blogEntries.sort(
         (post1, post2) =>
-          new Date(post2.data.publishedDate) -
-          new Date(post1.data.publishedDate)
+          new Date(post2.data.publishedDate).getUTCDate() -
+          new Date(post1.data.publishedDate).getUTCDate()
       )}
     />
   </div>

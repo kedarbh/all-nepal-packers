@@ -14,10 +14,26 @@ const blogCollection = defineCollection({
     coverImage: image().refine((img) => img.width >= 1080, {
         message: "Cover image must be at least 1080 pixels wide!",
       }).optional(),
-
   }),
 });
 
+const locationCollection = defineCollection ({
+  type: 'content',
+  schema: ({image}) => z.object({
+    title: z.string(),
+    location: z.string(),
+    description: z.string(),
+    introduction: z.string(),
+    bgImage: image().refine((img) => img.width >= 1080, {
+      message: "Cover image must be at least 1080 pixels wide!",
+    }).optional(),
+    bgColor: z.string(),
+    tags: z.array(z.string()),
+  }),
+});
+
+
 export const collections = {
   'blog': blogCollection,
+  'location' : locationCollection,
 };
