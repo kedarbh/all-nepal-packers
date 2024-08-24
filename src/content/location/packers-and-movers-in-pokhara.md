@@ -3,7 +3,7 @@ title: "Packers and Movers in Pokhara"
 location: "Pokhara"
 description: "Find the best packers and movers in Pokhara area"
 introduction: ""
-bgImage: "./images/hero-image.svg"
+bgImage: "./images/hero-image.png"
 bgColor: ""
 tags:
   [

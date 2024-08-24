@@ -1,0 +1,52 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+const locations = await getCollection("location");
+---
+
+<MainLayout
+  title="Our Service Locations"
+  description="Find packers and movers in your city"
+>
+  <main class="mx-auto max-w-screen-2xl px-6 lg:px-8">
+    <div class="py-20">
+      <h1 class="font-bold text-3xl pb-2">Citywise Packers and Movers</h1>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-20">
+      {
+        locations.map((location) => (
+          <div class="border border-indigo-500/20 rounded  overflow-hidden shadow-lg flex flex-col ">
+            <a
+              href={`/location/${location.slug}`}
+              aria-label={location.data.title}
+            >
+              {location.data.bgImage && (
+                <Image
+                  src={location.data.bgImage}
+                  class="w-full h-60 object-cover"
+                  alt={location.data.title}
+                  aria-label={location.data.title}
+                />
+              )}
+              <div class="px-6 py-4 mb-auto">
+                <h2 class="text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                  <a
+                    href={`/location/${location.slug}`}
+                    class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2"
+                    aria-label={location.data.title}
+                  >
+                    {location.data.title}
+                  </a>
+                </h2>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                  {location.data.introduction}
+                </p>
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</MainLayout>

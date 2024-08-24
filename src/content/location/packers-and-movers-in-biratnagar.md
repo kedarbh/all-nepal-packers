@@ -3,7 +3,7 @@ title: "Packers and Movers in Biratnagar"
 location: "Biratnagar"
 description: "Find the best packers and movers in Biratnagar area"
 introduction: ""
-bgImage: "./images/hero-image.svg"
+bgImage: "./images/hero-image.png"
 bgColor: ""
 tags:
   [

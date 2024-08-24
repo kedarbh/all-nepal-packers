@@ -3,7 +3,7 @@ title: "Packers and Movers in Bharatpur"
 location: "Bharatpur"
 description: "Find the best packers and movers in Bharatpur area"
 introduction: ""
-bgImage: "./images/hero-image.svg"
+bgImage: "./images/hero-image.png"
 bgColor: ""
 tags:
   [
