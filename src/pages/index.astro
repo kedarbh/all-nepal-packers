@@ -19,8 +19,8 @@ const blogEntries = await getCollection("blog");
     blogPosts={blogEntries
       .sort(
         (post1, post2) =>
-          new Date(post2.data.publishedDate).getUTCDate() -
-          new Date(post1.data.publishedDate).getUTCDate()
+          new Date(post2.data.publishedDate).valueOf() -
+          new Date(post1.data.publishedDate).valueOf()
       )
       .slice(0, 3)}
   />

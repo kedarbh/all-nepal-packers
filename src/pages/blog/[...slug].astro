@@ -12,7 +12,10 @@ export async function getStaticPaths() {
     params: { slug: post.slug },
     props: { post },
   }));
+
+
 }
+
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -31,7 +34,7 @@ const { Content } = await render();
   publishedDate={data.publishedDate}
   pageType="article"
 >
-  <div class="grid-container relative mx-auto max-w-screen-md md:z-10 mt-40">
+  <div class="grid-container relative mx-auto max-w-screen-md md:z-10">
     <div
       class="mx-auto w-fit max-w-full py-8 px-6 md:px-10 md:py-12 lg:px-12 lg:py-16 xl:p-16 xl:py-20"
     >
@@ -39,8 +42,9 @@ const { Content } = await render();
         <h1 class="text-4xl font-bold">
           {post.data.title}
         </h1>
-        <time datetime={post.data.publishedDate} class="text-gray-500"
-          >{post.data.publishedDate.toDateString()}</time
+        <time
+          datetime={post.data.publishedDate.toDateString()}
+          class="text-gray-500">{post.data.publishedDate.toDateString()}</time
         >
       </header>
       <div class="py-5">
