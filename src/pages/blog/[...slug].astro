@@ -1,21 +1,23 @@
 ---
 // import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import MainLayout from "@layouts/MainLayout.astro";
 import { Image } from "astro:assets";
+import BlogPostCard from "@components/BlogPostCard.astro";
 
-export async function getStaticPaths() {
+const posts = await getCollection("blog");
+
+export const getStaticPaths = (async ({}) => {
   const posts = await getCollection("blog");
-
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
-
-
-}
-
+  return posts.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post: post },
+    };
+  });
+}) satisfies GetStaticPaths;
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -24,6 +26,27 @@ type Props = {
 const { post } = Astro.props;
 const { data, render } = post;
 const { Content } = await render();
+
+const currentSlug = post.slug;
+const filteredPosts = posts
+  .filter((post) => post.slug !== currentSlug)
+  .sort(
+    (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf()
+  );
+
+function shuffledPosts(array) {
+  let i = filteredPosts.length - 1;
+  for (; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+const relatedPosts = shuffledPosts(filteredPosts).slice(0, 2);
+
+// console.log(nextStories);
 ---
 
 <MainLayout
@@ -61,6 +84,14 @@ const { Content } = await render();
       <article class="prose prose-slate">
         <Content />
       </article>
+    </div>
+
+    <!-- related post here -->
+    <div class="px-8">
+      <h2 class="text-2xl font-bold my-10">Read Next</h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        {relatedPosts.map((post: any) => <BlogPostCard post={post} />)}
+      </div>
     </div>
   </div>
 </MainLayout>
