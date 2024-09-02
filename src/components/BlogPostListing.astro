@@ -5,7 +5,7 @@ const { blogPosts } = Astro.props;
 ---
 
 <div
-  class="mx-auto mt-5 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:mt-5 sm:pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+  class="max-w-screen-2xl mx-auto mt-5 grid  grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:mt-5 sm:pt-10 lg:grid-cols-3"
 >
   {blogPosts.map((post: any) => <BlogPostCard post={post} />)}
 </div>
