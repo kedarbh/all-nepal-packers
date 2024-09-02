@@ -72,7 +72,7 @@ Certain items, like art and antiques, require special handling. Professional mov
 
 Moving heavy and bulky items, such as pianos or large furniture, can be particularly challenging.
 
-#### Specialized Equipment
+### Specialized Equipment
 
 Professionals have the necessary equipment and skills to handle these items safely and efficiently, preventing injuries and damage.
 
@@ -107,7 +107,7 @@ If any issues arise, professional movers are quick to resolve them. Their prompt
 
 ## Environmentally Friendly Practices
 
-### H2: Sustainable Packing Materials
+### Sustainable Packing Materials
 
 In today’s eco-conscious world, environmentally friendly practices are more important than ever. Professional movers often use sustainable packing materials and eco-friendly solutions to minimize their environmental impact.
 
@@ -119,4 +119,4 @@ They also ensure the efficient use of resources during the move. By planning and
 
 Hiring professional packers and movers offers numerous benefits, from efficiency and safety to cost-effectiveness and convenience. If you’re planning a move, consider hiring a professional packer and mover to make the process smoother, safer, and more enjoyable. It’s an investment in peace of mind and a hassle-free transition to your new home.
 
-Established in the heart of Kathmandu, [All Nepal Packers and Movers](/) has been a trusted name in the moving industry. With a commitment to excellence and customer satisfaction, we provide seamless and stress-free moving experiences. Choose All Nepal Packers and Movers for top-notch service, expert handling, and secure transportation every step of the way.
+Established in the heart of Kathmandu, [All Nepal Packers and Movers](/) has been a trusted name in the moving industry. With a commitment to excellence and customer satisfaction, we provide seamless and stress-free moving experiences. Choose All Nepal Packers and Movers for top-notch packing and moving service, expert handling, and secure transportation every step of the way.
