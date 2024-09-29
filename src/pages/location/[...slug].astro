@@ -25,7 +25,13 @@ const optimizedImage = await getImage({ src: bgImage, width: 1060 });
 ---
 
 <!-- ${data.bgColor} -->
-<MainLayout>
+<MainLayout
+  title={data.title}
+  description={data.description}
+  coverImage={data.bgImage}
+  tags={data.tags}
+  pageType="website"
+>
   <div class="">
     <div
       class={`min-h-[24rem]

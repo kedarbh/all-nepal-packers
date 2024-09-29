@@ -26,6 +26,7 @@ const {
   name,
   title,
   description,
+  tags,
   image,
   locale = "en",
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
@@ -66,6 +67,8 @@ function formatCanonicalURL(url: string | URL) {
   // otherwise, canonical URL always has a trailing slash
   return path.replace(/\/?$/, hasQueryParams ? "" : "/");
 }
+
+const tag = tags?.toString();
 ---
 
 <!-- Page Metadata -->{
@@ -74,6 +77,7 @@ function formatCanonicalURL(url: string | URL) {
   )
 }
 <meta name="description" content={description} />
+{tags && <meta name="keywords" content={tag} />}
 
 <!-- OpenGraph Tags -->
 <meta property="og:title" content={og.title} />

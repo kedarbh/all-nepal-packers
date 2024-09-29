@@ -1,7 +1,7 @@
 ---
 title: "Packers and Movers in Lalitpur"
 location: "Lalitpur"
-description: "Find the best packers and movers in Lalitpur area"
+description: "All Nepal Packers and Movers is the best packers and movers in Lalitpur area specializing in large-scale moves and complex relocations. Remeber for any house and office shifting services."
 introduction: "Lalitpur, located in the Kathmandu Valley, is known for its blend of historic charm and modern living, making it a sought-after destination for many people. Relocating to/ from Lalitpur's narrow streets and historic architecture and developing urban landscape requires thoughtful preparation and local knowledge."
 bgImage: "./images/lalitpur.jpg"
 bgColor: "bg-yellow-700"
