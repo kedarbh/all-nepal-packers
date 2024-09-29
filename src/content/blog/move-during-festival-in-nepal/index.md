@@ -72,7 +72,7 @@ Selecting a reliable moving company is crucial, especially during the busy festi
 
 ### Packing with the Festival in Mind
 
-Pack your belongings in a way that considers the ongoing festival. For example, keep items like diyas, tika, and other festival-related items separate and easily accessible. This will allow you to set up your new home quickly and participate in the celebrations without hassle.
+Pack your belongings in a way that considers the ongoing festival. For example, keep items like diyos, tika, and other festival-related items separate and easily accessible. This will allow you to set up your new home quickly and participate in the celebrations without hassle.
 
 ### Managing Time Between Celebrations and Moving
 

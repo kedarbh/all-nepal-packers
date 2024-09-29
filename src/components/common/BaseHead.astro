@@ -32,13 +32,19 @@ const {
   publishedDate,
 } = Astro.props;
 
-const title = rawTitle ?? [Astro.props.title].filter(Boolean).join(" | "); //,siteInfo.name
+const title =
+  rawTitle ?? [Astro.props.title, siteInfo.name].filter(Boolean).join(" | ");
 const resolvedImage = {
   src: new URL(image.src, Astro.site).toString(),
   alt: image.alt,
 };
 
 const data = { title, description, publishedDate, tags, pageType, coverImage };
+
+const resolvedCoverImage = {
+  src: new URL(coverImage?.src, Astro.site).toString(),
+  alt: Astro.props.title,
+};
 ---
 
 <!-- High Priority Global Metadata -->
@@ -77,7 +83,7 @@ const data = { title, description, publishedDate, tags, pageType, coverImage };
   name={siteInfo.name}
   title={title}
   description={description}
-  image={resolvedImage}
+  image={coverImage ? resolvedCoverImage : resolvedImage}
   twitter={{ handle: twitterHandle }}
   og={{ type: pageType }}
   canonicalURL={canonicalURL}
