@@ -31,9 +31,11 @@ const {
   tags,
   publishedDate,
 } = Astro.props;
+console.log(rawTitle);
 
 const title =
   rawTitle ?? [Astro.props.title, siteInfo.name].filter(Boolean).join(" | ");
+
 const resolvedImage = {
   src: new URL(image.src, Astro.site).toString(),
   alt: image.alt,
