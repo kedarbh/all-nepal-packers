@@ -1,11 +1,348 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
+// import { Image, getImage } from "astro:assets";
+// import image from "../assets/images/contact.jpg"
+
+export interface LocationList {
+  location: string;
+  tel: string;
+  fax: string;
+  map: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+}
+
+// const optimizedImage = await getImage({
+//   src: image, format: 'webp'
+// });
+
+// const locations: LocationList[] = locationList;
+
+const title = "Contact All Nepal Packers and Movers";
+const description =
+  "Contact best moving company in Nepal for moving services like House Shifting, Office Shifting, Flat Shifting, Packers and Movers for DIY moves. Call us at +977-9843472589 for free moving quote.";
 ---
 
-<MainLayout title="Contact us for best packers and Movers">
-  <div class="max-w-screen-2xl mx-auto px-8 py-20 sm:py-24">
-    <div>
-      <h1 class="text-3xl font-bold pb-10">Contact us</h1>
+<MainLayout>
+  <div class="max-w-screen-2xl mx-auto px-8 my-20">
+    <div class="flex flex-row flex-wrap md:flex-nowrap gap-10">
+      <div
+        class="w-full md:w-1/2 bg-sky-100/30 rounded-xl items-center space-y-10 p-10 bg-cover bg-center border border-sky-100"
+      >
+        <!-- style={`background-image: url(${optimizedImage.src});`} -->
+        <div class="flex space-x-4 items-center leading-tight">
+          <div
+            class="rounded-full bg-sky-600 text-white p-2 h-10 w-10 flex items-center justify-center"
+          >
+            <Icon name="call" class="h-8 w-8" />
+          </div>
+          <div>
+            <p class="font-bold text-xl">Phone Number</p>
+            <p>+977-9843472589</p>
+          </div>
+        </div>
+        <div class="flex space-x-4 items-center leading-tight">
+          <div
+            class="rounded-full bg-sky-600 text-white p-2 h-10 w-10 flex items-center justify-center"
+          >
+            <Icon name="email-filled" class="h-8 w-8" />
+          </div>
+          <div>
+            <p class="font-bold text-xl">Email Address</p>
+            <p>info@allnepalmovers.com.np</p>
+          </div>
+        </div>
+        <div class="flex space-x-4 items-center leading-tight">
+          <div
+            class="rounded-full bg-sky-600 text-white p-2 h-10 w-10 flex items-center justify-center"
+          >
+            <Icon name="location-filled" class="h-8 w-8" />
+          </div>
+          <div>
+            <p class="font-bold text-xl">Contact Address</p>
+            <p>Kathmandu, Nepal</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 py-10">
+        <h2 class="font-bold text-3xl mb-10">Get In Touch</h2>
+        <div
+          id="successMessage"
+          class="hidden text-sm mt-4 border p-5 rounded-xl shadow"
+        >
+        </div>
+        <form id="contactForm">
+          <div class="space-y-12">
+            <div class="pb-2">
+              <div
+                class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+              >
+                <div class="sm:col-span-3">
+                  <label
+                    for="first-name"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >First Name</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      name="firstName"
+                      required
+                      id="first-name"
+                      autocomplete="given-name"
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+                <div class="sm:col-span-3">
+                  <label
+                    for="last-name"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Last Name</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="text"
+                      name="lastName"
+                      required
+                      id="last-name"
+                      autocomplete="family-name"
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                  <label
+                    for="email"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Email address</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                  <label
+                    for="phone-number"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Phone Number</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      type="tel"
+                      name="phone"
+                      id="phone-number"
+                      autocomplete="tel-national"
+                      pattern="[0-9]{10}"
+                      required
+                      title="Mobile Number should be 10 digit long"
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                  <label
+                    for="message"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Message</label
+                  >
+                  <div class="mt-2">
+                    <textarea
+                      name="message"
+                      id="message"
+                      required
+                      rows="8"
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="sm:col-span-6 flex space-x-4 items-center">
+                  <div class="mt-2">
+                    <input
+                      type="checkbox"
+                      name="privacy"
+                      id="privacy"
+                      required
+                      class="accent-sky-500 h-5 w-5"
+                    />
+                  </div>
+                  <label
+                    for="privacy"
+                    class="block text-sm leading-6 text-gray-700"
+                    >I understand and agree that any information submitted will
+                    be forwarded to our office by email and not via a secure
+                    messaging system.</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center gap-x-6">
+            <button
+              type="submit"
+              class="w-full rounded-md bg-sky-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
+              >Send Message</button
+            >
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </MainLayout>
+
+<script>
+  document
+    .getElementById("contactForm")
+    ?.addEventListener("submit", function (e) {
+      // Prevent form from submitting normally
+      e.preventDefault();
+
+      // Get form fields
+      const firstName = document.getElementById(
+        "first-name"
+      ) as HTMLInputElement | null;
+      const lastName = document.getElementById(
+        "last-name"
+      ) as HTMLInputElement | null;
+      const email = document.getElementById("email") as HTMLInputElement | null;
+      const phone = document.getElementById(
+        "phone-number"
+      ) as HTMLInputElement | null;
+      const message = document.getElementById(
+        "message"
+      ) as HTMLTextAreaElement | null;
+      const privacy = document.getElementById(
+        "privacy"
+      ) as HTMLInputElement | null;
+      const successMessage = document.getElementById(
+        "successMessage"
+      ) as HTMLDivElement | null;
+
+      // Validation flags
+      let valid = true;
+
+      // Clear previous error messages
+      const clearErrors = () => {
+        const errorMessages = document.querySelectorAll(".error-message");
+        errorMessages.forEach((msg) => msg.remove());
+      };
+
+      clearErrors();
+
+      // Helper function to show error
+      const showError = (
+        input:
+          | HTMLInputElement
+          | HTMLTextAreaElement
+          | HTMLSelectElement
+          | null,
+        message: string
+      ) => {
+        if (input) {
+          const error = document.createElement("div");
+          error.className = "error-message text-red-500 text-sm mt-1";
+          error.innerText = message;
+          input.parentElement?.appendChild(error);
+          valid = false;
+        }
+      };
+
+      // Validate first name
+      if (!firstName?.value.trim()) {
+        showError(firstName, "First name is required");
+        firstName?.focus();
+      }
+
+      // Validate last name
+      if (!lastName?.value.trim()) {
+        showError(lastName, "First name is required");
+        lastName?.focus();
+      }
+
+      // Validate email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email?.value.trim()) {
+        showError(email, "Email is required");
+        email?.focus();
+      } else if (!emailPattern.test(email.value.trim())) {
+        showError(email, "Please enter a valid email address");
+        email?.focus();
+      }
+
+      // Validate phone number (should be exactly 10 digits)
+      const phonePattern = /^[0-9]{10}$/;
+      if (!phone?.value.trim()) {
+        showError(phone, "Phone number is required");
+        phone?.focus();
+      } else if (!phonePattern.test(phone.value.trim())) {
+        showError(phone, "Please enter a valid 10-digit phone number");
+        phone?.focus();
+      }
+
+      // Validate message
+      if (!message?.value.trim()) {
+        showError(message, "Message is required");
+        message?.focus();
+      }
+
+      // Validate privacy checkbox
+      if (!privacy?.checked) {
+        showError(privacy, "You must agree to the privacy policy");
+      }
+
+      if (valid) {
+        const formData = new FormData(this as HTMLFormElement);
+
+        // URL of your deployed Google Apps Script web app
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycbzvXR-qd0kXunmU5FYVK9js2tDfcuRKjC3YCIUBPJwwaxv3OYohdDFpxUxUmi7qBOA/exec";
+
+        // Use fetch API to submit the form data
+        fetch(scriptURL, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.text();
+          })
+          .then((data) => {
+            if (data.startsWith("Error:")) {
+              throw new Error(data);
+            } else {
+              // showModal("Form submitted successfully!");
+              successMessage?.classList.remove("hidden");
+              successMessage?.classList.add("block", "text-sky-600");
+              successMessage!.innerHTML = `Form Submitted Successfully.`;
+              (
+                document.getElementById("contactForm") as HTMLFormElement
+              )?.reset();
+            }
+          })
+          .catch((error) => {
+            // showModal("Form submission failed: " + error.message);
+            successMessage?.classList.remove("hidden");
+            successMessage?.classList.add("block", "text-red-600");
+            successMessage!.innerHTML =
+              `Form submission failed: <br>` + error.message;
+          });
+      }
+    });
+</script>
