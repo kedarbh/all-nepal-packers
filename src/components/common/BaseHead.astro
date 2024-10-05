@@ -28,7 +28,7 @@ const {
   canonicalURL = new URL(Astro.request.url, Astro.site),
   pageType = "website",
   coverImage,
-  tags,
+  tags = siteInfo.tags,
   publishedDate,
 } = Astro.props;
 console.log(rawTitle);

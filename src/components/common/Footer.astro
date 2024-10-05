@@ -1,13 +1,13 @@
 ---
 // import { Image } from "astro:assets";
+import Wrapper from "@components/ui/Wrapper.astro";
 import Logo from "./Logo.astro";
 import Review from "./Review.astro";
 ---
 
-<footer>
-  <div
-    class="mx-auto max-w-screen-2xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
-  >
+<footer class="my-20">
+  <Wrapper>
+
     <!-- referral map -->
     <div class="h-0 w-0">
       <strong
@@ -245,5 +245,6 @@ import Review from "./Review.astro";
       &copy; 2024 <a href="/">All Nepal Packers and Movers</a>. All rights
       reserved.
     </p>
-  </div>
+
+  </Wrapper>
 </footer>
