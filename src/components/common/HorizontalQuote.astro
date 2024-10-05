@@ -3,7 +3,7 @@
 ---
 
 <h1 class="text-3xl font-bold mb-4">Moving Quote Request</h1>
-<form class="flex space-x-4">
+<form class="grid grid-cols-4 gap-3">
   <div class="w-full">
     <label for="fullName" class="block mb-2 text-sm font-bold text-gray-700"
       >Full Name</label
@@ -40,8 +40,6 @@
       required
     />
   </div>
-</form>
-<form class="flex space-x-4 mt-4">
   <div class="w-full">
     <label for="movingFrom" class="block mb-2 text-sm font-bold text-gray-700"
       >Moving From</label
@@ -78,6 +76,7 @@
       <option value="long-distance">Long Distance Move</option>
     </select>
   </div>
+
 </form>
 <button
   type="submit"

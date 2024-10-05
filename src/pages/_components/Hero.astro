@@ -1,53 +1,60 @@
 ---
-
+import Wrapper from "@components/ui/Wrapper.astro";
+import CoverImage from "@assets/images/hero-image.jpg";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 ---
 
-<div class="container mx-auto bg-white mb-20">
-  <div class="relative isolate px-6 lg:px-8">
-    <!-- <div
-      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-      aria-hidden="true"
-    >
-      <div
-        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-      >
-      </div>
-    </div> -->
-    <!-- hero contents -->
-    <div class="max-w-full flex flex-wrap-reverse lg:py-20 py-4">
-      <div class="w-full lg:w-1/2">
-        <h1
-          class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
-        >
-          <!-- Moving Made Easy: Affordable Rates, Reliable Service -->
-          Reliable Packers and Movers in Nepal
-        </h1>
-        <p class="lg:max-w-sm mt-6 text-lg leading-8 text-gray-600">
-          Experienced movers you can trust, at prices you can afford. Unpack
-          your dreams, not the stress. Let's make your move smooth.
-        </p>
-        <div class="mt-10 flex items-center">
-          <a
-            href="/free-quote"
-            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >Get Your Free Quote</a
+<Wrapper>
+  <div>
+    <div class="relative isolate">
+      <!-- hero contents -->
+      <div class="max-w-full flex flex-wrap-reverse lg:py-20 py-4">
+        <div class="w-full lg:w-1/2">
+          <div
+            class="my-4 inline-block rounded-lg bg-gradient-to-r from-orange-400
+    to-red-400 px-3 py-2 text-xs sm:text-base font-medium text-white"
+            style="transform: rotate(-2deg);"
           >
+            <span
+              >&starf; &starf; &starf; &starf; &starf; “Highly recommend their
+              shifting services”</span
+            >
+          </div>
+          <div class="lg:max-w-sm">
+            <h1
+              class="text-4xl sm:text-5xl font-semibold tracking-tight text-gray-900"
+            >
+              <!-- Moving Made Easy: Affordable Rates, Reliable Service -->
+              Reliable Packers and Movers in Nepal
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-gray-600">
+              Experienced movers you can trust, at prices you can afford. Unpack
+              your dreams, not the stress. Let's make your move smooth.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a
+              href="/free-quote"
+              class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Get Your Free Quote</a
+            >
+
+          </div>
+          <div class="flex items-center space-x-2 mt-4">
+              <Icon name="family" class="h-8 w-8" />
+              <span class="text-sm leading-tight text-gray-600">1000+ Families Moved <br/>all over Nepal </span>
+          </div>
+        </div>
+        <div class="w-full lg:w-2/3 lg:absolute top-0 right-0 -z-10">
+          <Image
+            src={CoverImage}
+            alt="Movers loading house furnitures and boxes safely in a truck"
+          />
+          <!-- image from: https://www.freepik.com/premium-ai-image/moving-service-delivery-company_336775292.htm#fromView=search&page=3&position=21&uuid=4a67ba8e-61e3-4658-846d-8f44fd8a1dff -->
         </div>
       </div>
-      <div
-        class="w-full sm:w-2/3 lg:absolute top-0 right-0 mt-16 lg:mr-8 -z-10"
-      >
-        <img
-          src="/hero-image.jpg"
-          alt="hero banner image showing movers loading boxes in a truck"
-          width="auto"
-          height="auto"
-          loading="eager"
-        />
-        <!-- image from: https://www.freepik.com/premium-ai-image/moving-service-delivery-company_336775292.htm#fromView=search&page=3&position=21&uuid=4a67ba8e-61e3-4658-846d-8f44fd8a1dff -->
-      </div>
+      <!-- hero content end -->
     </div>
-    <!-- hero content end -->
   </div>
-</div>
+</Wrapper>

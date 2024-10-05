@@ -1,10 +1,14 @@
+---
+const {visibility} = Astro.props;
+---
+
 <!--?xml version="1.0" encoding="UTF-8"?-->
 <svg
   id="Layer_2"
   data-name="Layer 2"
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 221.97 99.31"
-  class="h-24"
+  class:list={["h-24 md:inline", visibility]}
 >
   <defs>
     <style>
@@ -14,7 +18,7 @@
 
       .cls-2 {
         fill: none;
-        stroke: #1c75bc;
+        stroke: rgb(3 105 161);
         stroke-miterlimit: 10;
       }
 
@@ -35,7 +39,7 @@
       .cls-5,
       .cls-6,
       .cls-7 {
-        fill: #1c75bc;
+        fill: rgb(3 105 161);
       }
 
       .cls-8 {
