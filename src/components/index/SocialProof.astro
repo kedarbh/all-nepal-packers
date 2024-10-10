@@ -1,0 +1,125 @@
+---
+import Title2 from "@components/typography/Title1.astro";
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+
+export interface SocialProof {
+  icon: string;
+  text: string;
+}
+
+export interface ReviewItems {
+  reviewTheme: string;
+  name: string;
+  star: number;
+  review: string;
+}
+const socialProof: SocialProof[] = [
+  {
+    icon: "secure",
+    text: "100% Safe and Secure",
+  },
+  {
+    icon: "shooting-star",
+    text: "Rated 4.8+ Stars on Google",
+  },
+  {
+    icon: "10-plus",
+    text: "Years of Relocation Industry Experience",
+  },
+];
+
+const reviewItem: ReviewItems[] = [
+  {
+    reviewTheme: "Efficient and Reliable",
+    name: "Anisha Gautam",
+    star: 5,
+    review:
+      "I was impressed by their efficiency and attention to detail. Everything was completed on time and in perfect condition. A reliable moving service I’ll use again.",
+  },
+  {
+    reviewTheme: "Seamless and Worry-Free Move",
+    name: "Dipesh Manandhar",
+    star: 5,
+    review:
+      "I was worried about the cost, but they provided an affordable service without compromising quality. Everything was moved safely, and I couldn’t be happier with the experience.",
+  },
+  {
+    reviewTheme: "Great Service and Support",
+    name: "Raju Karki",
+    star: 5,
+    review:
+      "The team was supportive throughout the process. From packing to moving, they made sure everything went smoothly. Very satisfied with their service.",
+  },
+  {
+    reviewTheme: "Highly Professional!",
+    name: "Suman Poudyal",
+    star: 5,
+    review:
+      "All Nepal Packers and Movers made my move stress-free. Their team was punctual, professional, and handled everything with care. Highly recommend!",
+  },
+];
+
+var getInitials = function (name: string) {
+  var names = name.split(" "),
+    initials = names[0].substring(0, 1).toUpperCase();
+
+  if (names.length > 1) {
+    initials += names[names.length - 1].substring(0, 1).toUpperCase();
+  }
+  return initials;
+};
+---
+
+<Wrapper>
+  <div class="bg-gray-50/50 py-10 px-3 rounded-lg">
+    <div class="mb-20">
+      <Title2 class="text-center">Moving can be Smooth and Stress-free</Title2>
+      <div
+        class="max-w-xl mx-auto mt-4 divide-x divide-dashed grid grid-cols-3 [&>*]:px-4"
+      >
+        {
+          socialProof.map((item) => (
+            <div class="flex flex-wrap md:flex-nowrap items-center space-x-2 justify-center text-center md:text-left">
+              <Icon name={item.icon} class="h-10 w-8" />
+              <span class="text-xs leading-tight text-gray-600">
+                {item.text}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="col-span-2">
+      <div class="grid md:grid-cols-2 gap-5">
+        {
+          reviewItem.map((item) => (
+            <div class="border border-indigo-100 rounded-lg p-3 shadow-sm space-y-2">
+              <p>
+                <strong>{item.reviewTheme}</strong>
+              </p>
+              <p>&ldquo;{item.review}&rdquo;</p>
+              <div class="flex items-center gap-3 py-2">
+                <div class="pl-2">
+                  <p class="h-10 w-10 rounded-full bg-indigo-600 p-2 text-white flex items-center justify-center">
+                    {getInitials(item.name)}
+                  </p>
+                </div>
+                <div class="leading-snug">
+                  <p class="font-bold">{item.name}</p>
+                  <div>
+                    <span class="text-amber-500">★</span>
+                    <span class="text-amber-500">★</span>
+                    <span class="text-amber-500">★</span>
+                    <span class="text-amber-500">★</span>
+                    <span class="text-amber-500">★</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Wrapper>

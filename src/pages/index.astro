@@ -7,12 +7,14 @@ import MainLayout from "@layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import BlogPostListing from "../components/BlogPostListing.astro";
 import Wrapper from "@components/ui/Wrapper.astro";
+import SocialProof from "@components/index/SocialProof.astro";
 
 const blogEntries = await getCollection("blog");
 ---
 
 <MainLayout title="Best Packers and Movers in Nepal">
   <Hero />
+  <SocialProof />
   <FeaturedPost />
   <MovingProcess />
   <Services />

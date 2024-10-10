@@ -23,8 +23,8 @@ export type SiteInfo ={
 
 const siteInfo: SiteInfo ={
   name: "All Nepal Packers and Movers",
-  title: "Affordable Packers & Movers Near You",
-  description: "All Nepal Packers & Movers offers professional and affordable moving services across Nepal. From home relocation to office moves, we ensure a safe, timely, and stress-free moving experience. Get a free quote today!",
+  title: "Affordable Packers and Movers Near You",
+  description: "All Nepal Packers and Movers offers professional and affordable moving services across Nepal. From home relocation to office moves, we ensure a safe, timely, and stress-free moving experience. Get a free quote today!",
   tags:"Packers and movers in Nepal, Moving services Nepal, Home relocation Kathmandu, Office relocation Nepal, Affordable movers Nepal, Best movers Kathmandu, Vehicle transport Nepal, Safe and reliable movers, Local moving services Nepal ",
   image: {
     src: "/og.png",

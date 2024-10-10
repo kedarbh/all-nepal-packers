@@ -31,7 +31,7 @@ const {
   tags = siteInfo.tags,
   publishedDate,
 } = Astro.props;
-console.log(rawTitle);
+// console.log(rawTitle);
 
 const title =
   rawTitle ?? [Astro.props.title, siteInfo.name].filter(Boolean).join(" | ");
