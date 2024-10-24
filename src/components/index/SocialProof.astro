@@ -21,7 +21,7 @@ const socialProof: SocialProof[] = [
   },
   {
     icon: "shooting-star",
-    text: "Rated 4.8+ Stars on Google",
+    text: "Rated 4.8+ Stars on <a href='https://www.google.com/search?kgmid=/g/11vy41n_kz' target='_blank'>Google</a>",
   },
   {
     icon: "10-plus",
@@ -82,9 +82,10 @@ var getInitials = function (name: string) {
           socialProof.map((item) => (
             <div class="flex flex-wrap md:flex-nowrap items-center space-x-2 justify-center text-center md:text-left">
               <Icon name={item.icon} class="h-10 w-8" />
-              <span class="text-xs leading-tight text-gray-600">
-                {item.text}
-              </span>
+              <span
+                class="text-xs leading-tight text-gray-600"
+                set:html={item.text}
+              ></span>
             </div>
           ))
         }

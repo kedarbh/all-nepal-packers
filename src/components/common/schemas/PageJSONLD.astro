@@ -15,42 +15,218 @@ const organizationSchema = {
 
   // "geo": {
   //   "@type": "GeoCoordinates",
-  //   "latitude": "27.688820",
-  //   "longitude": "85.316576"
+  //   "latitude": "27.688820", // kupondole locatio
+  //   "longitude": "85.316576" // kupondole locatio
   // 27.740686, 85.337099 maharjgunj lat long
   // },
   email: "allnepalmovers@gmail.com",
   logo: "https://allnepalmovers.com.np/logo.svg",
   telephone: "+9779843472589",
   url: "https://allnepalmovers.com.np",
-  areaServed: [
-    {
-      "@type": "place",
-      name: "Kathmandu",
-      sameAs: "https://en.wikipedia.org/wiki/Kathmandu",
-      // 27.688820, 85.316576
-    },
-    {
-      "@type": "place",
-      name: "Lalitpur",
-      sameAs: "https://en.wikipedia.org/wiki/Lalitpur,_Nepal",
-    },
-    {
-      "@type": "place",
-      name: "Bhaktapur",
-      sameAs: "https://en.wikipedia.org/wiki/Bhaktapur",
-    },
-    {
-      "@type": "place",
-      name: "Pokhhara",
-      sameAs: "https://en.wikipedia.org/wiki/Pokhara",
-    },
-    {
-      "@type": "place",
-      name: "Itahari",
-      sameAs: "https://en.wikipedia.org/wiki/Itahari",
-    },
+  areaServed: "NP",
+  keywords: [
+    "packers and movers",
+    "moving company",
+    "packers and movers near me",
+    "packers and movers in nepal",
+    "house shifting service",
+    "office shifting service",
+    "packers movers",
+    "moving service",
   ],
+  description:
+    "All Nepal Packers and Movers is the top moving company in Nepal, providing services in major cities like Kathmandu, Bhaktapur, Lalitpur, Pokhara, Biratnagar, Dharan, Hetauda, Bharatpur, Butwal and Nepalgunj. contact us at +977-9843472589 or visit https://allnepalmovers.com.np/free-quote for a free moving quote.",
+
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Moving Services",
+    itemListElement: [
+      {
+        "@type": "OfferCatalog",
+        name: "Residential Moving",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Local Moving",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Long Distance Moving",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Apartment Moving",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Flat Moving",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "OfferCatalog",
+        name: "Commercial Moving",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Office Moving",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Corporate Relocation",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Industrial Moving",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Retail Moving",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "OfferCatalog",
+        name: "DIY Move",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Hire a Mover",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Hire a Moving Vehicle",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "OfferCatalog",
+        name: "Specialized Move",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Antique Moving",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Fine Art Moving",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Motorbike Transportation",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "OfferCatalog",
+        name: "Packing and Unpacking",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Full Packing Services",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Partial Packing Services",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "unpacking Services",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "unpacking Services",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Packing Supplies",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  // areaServed: [
+  //   {
+  //     "@type": "place",
+  //     name: "Kathmandu",
+  //     sameAs: "https://en.wikipedia.org/wiki/Kathmandu",
+  //     // 27.688820, 85.316576
+  //   },
+  //   {
+  //     "@type": "place",
+  //     name: "Lalitpur",
+  //     sameAs: "https://en.wikipedia.org/wiki/Lalitpur,_Nepal",
+  //   },
+  //   {
+  //     "@type": "place",
+  //     name: "Bhaktapur",
+  //     sameAs: "https://en.wikipedia.org/wiki/Bhaktapur",
+  //   },
+  //   {
+  //     "@type": "place",
+  //     name: "Pokhhara",
+  //     sameAs: "https://en.wikipedia.org/wiki/Pokhara",
+  //   },
+  //   {
+  //     "@type": "place",
+  //     name: "Itahari",
+  //     sameAs: "https://en.wikipedia.org/wiki/Itahari",
+  //   },
+  // ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [
@@ -92,26 +268,84 @@ const organizationSchema = {
   ],
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: 4.8,
+    ratingValue: 4.9,
     bestRating: 5,
     worstRating: 0,
-    ratingCount: 150,
-    reviewCount: 150,
+    ratingCount: 211,
+    reviewCount: 211,
   },
-  review: {
-    "@type": "Review",
-    reviewBody:
-      "I have used all nepal packers and movers to move to my new house. I hired them for the packing and moving services. Their team took good care of my belonging and made my move smooth. Highly recommend their shifting services. They have good team and resources for small flat shifting to a complete residential move.",
-    datePublished: "2024-06-13",
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: "5",
+  review: [
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Anisha Gautam",
+      },
+      datePublished: "2024-06-13",
+      name: "Efficient and Reliable",
+      reviewBody:
+        "I was impressed by their efficiency and attention to detail. Everything was completed on time and in perfect condition. A reliable moving service I’ll use again.",
+      reviewRating: {
+        "@type": "Rating",
+        bestRating: "5",
+        ratingValue: "5",
+        worstRating: "1",
+      },
     },
-    author: {
-      "@type": "Person",
-      name: "Madhusudan Dangal",
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Dipesh Manandhar",
+      },
+      datePublished: "2024-08-23",
+      name: "Seamless and Worry-Free Move",
+      reviewBody:
+        "I was worried about the cost, but they provided an affordable service without compromising quality. Everything was moved safely, and I couldn’t be happier with the experience.",
+      reviewRating: {
+        "@type": "Rating",
+        bestRating: "5",
+        ratingValue: "5",
+        worstRating: "1",
+      },
     },
-  },
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Raju Karki",
+      },
+      datePublished: "2024-07-03",
+      name: "Great Service and Support",
+      reviewBody:
+        "The team was supportive throughout the process. From packing to moving, they made sure everything went smoothly. Very satisfied with their service.",
+      reviewRating: {
+        "@type": "Rating",
+        bestRating: "5",
+        ratingValue: "5",
+        worstRating: "1",
+      },
+    },
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Suman Poudyal",
+      },
+      datePublished: "2024-08-23",
+      name: "Highly Professional!",
+      reviewBody:
+        "All Nepal Packers and Movers made my move stress-free. Their team was punctual, professional, and handled everything with care. Highly recommend!",
+      reviewRating: {
+        "@type": "Rating",
+        bestRating: "5",
+        ratingValue: "5",
+        worstRating: "1",
+      },
+    },
+  ],
+  currenciesAccepted: "NPR",
+  paymentAccepted: "Cash",
   priceRange: "$",
 };
 
