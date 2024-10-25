@@ -45,8 +45,6 @@ function shuffledPosts(array) {
   return array;
 }
 const relatedPosts = shuffledPosts(filteredPosts).slice(0, 2);
-
-
 ---
 
 <MainLayout
@@ -81,7 +79,7 @@ const relatedPosts = shuffledPosts(filteredPosts).slice(0, 2);
         />
       </div>
 
-      <article class="prose prose-slate">
+      <article class="prose prose-slate" aria-label={post.data.title}>
         <Content />
       </article>
     </div>
