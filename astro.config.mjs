@@ -9,6 +9,7 @@ import playformCompress from "@playform/compress";
 export default defineConfig({
   site: "https://allnepalmovers.com.np",
   output: "static",
+
   integrations: [
     tailwind(),
     sitemap(),

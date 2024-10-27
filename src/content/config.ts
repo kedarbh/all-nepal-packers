@@ -32,8 +32,23 @@ const locationCollection = defineCollection ({
   }),
 });
 
+const serviceCollection = defineCollection({
+  type: 'content',
+  schema: ({image}) => z.object({
+    title: z.string().min(5).max(70),
+    description: z.string(),
+    summary: z.string(),
+    coverImage: z.object({
+      src:image().refine((img) => img.width >= 1080, {
+        message: "Cover image must be at least 1080 pixels wide!",
+      }),
+      alt: z.string(),
+    })
+  }),
+});
 
 export const collections = {
   'blog': blogCollection,
   'location' : locationCollection,
+  'services' : serviceCollection,
 };

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://beta.frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "blog",
+      "previewPath": "'blog'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "publishedDate",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "tags",
+          "type": "tags",
+          "required": true
+        },
+        {
+          "name": "coverImage",
+          "type": "image",
+          "isPreviewImage": true
+        }
+      ]
+    },
+    {
+      "name": "location",
+      "previewPath": "'location'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "introduction",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "bgImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "name": "bgColor",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "tags",
+          "type": "tags",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "services",
+      "previewPath": "'services'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "coverImage",
+          "type": "image",
+          "required": true,
+          "isPreviewImage": true
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog",
+      "contentTypes": [
+        "blog"
+      ]
+    },
+    {
+      "title": "location",
+      "path": "[[workspace]]/src/content/location",
+      "contentTypes": [
+        "location"
+      ]
+    },
+    {
+      "title": "services",
+      "path": "[[workspace]]/src/content/services",
+      "contentTypes": [
+        "services"
+      ]
+    }
+  ],
+  "frontMatter.content.publicFolder": {
+    "path": "src/assets",
+    "relative": true
+  }
+}
