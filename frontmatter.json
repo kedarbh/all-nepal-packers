@@ -98,6 +98,12 @@
       "clearEmpty": true,
       "fields": [
         {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
           "name": "description",
           "type": "string",
           "single": true,
@@ -124,23 +130,17 @@
     {
       "title": "blog",
       "path": "[[workspace]]/src/content/blog",
-      "contentTypes": [
-        "blog"
-      ]
+      "contentTypes": ["blog"]
     },
     {
       "title": "location",
       "path": "[[workspace]]/src/content/location",
-      "contentTypes": [
-        "location"
-      ]
+      "contentTypes": ["location"]
     },
     {
       "title": "services",
       "path": "[[workspace]]/src/content/services",
-      "contentTypes": [
-        "services"
-      ]
+      "contentTypes": ["services"]
     }
   ],
   "frontMatter.content.publicFolder": {

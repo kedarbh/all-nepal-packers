@@ -23,11 +23,11 @@ const locationCollection = defineCollection ({
     title: z.string(),
     location: z.string(),
     description: z.string(),
-    introduction: z.string(),
+    introduction: z.string().optional(),
     bgImage: image().refine((img) => img.width >= 1080, {
       message: "Cover image must be at least 1080 pixels wide!",
     }).optional(),
-    bgColor: z.string(),
+    bgColor: z.string().optional(),
     tags: z.array(z.string()),
   }),
 });
