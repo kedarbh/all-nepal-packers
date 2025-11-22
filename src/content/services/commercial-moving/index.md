@@ -7,5 +7,5 @@ coverImage:
   alt: movers moving materials of corporate office
 keywords:
   - commercial moving
-slug: /commercial-moving
+slug: commercial-moving
 ---

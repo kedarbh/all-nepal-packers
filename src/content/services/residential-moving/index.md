@@ -7,5 +7,5 @@ coverImage:
   alt: movers moving materials of residential house
 keywords:
   - residential moving
-slug: /residential-moving
+slug: residential-moving
 ---
