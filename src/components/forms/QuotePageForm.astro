@@ -204,9 +204,11 @@
       showModal("Submitting form...");
 
       const formData = new FormData(this);
-
+      
+      // "https://script.google.com/macros/s/AKfycby1fEjWC_C5nuRx3TQco1ZhVDYF7RbK1md-lHpaS0t2IaPcbGZbZDsz_nUMqWEzLWs9Iw/exec", //old link
       fetch(
-        "https://script.google.com/macros/s/AKfycby1fEjWC_C5nuRx3TQco1ZhVDYF7RbK1md-lHpaS0t2IaPcbGZbZDsz_nUMqWEzLWs9Iw/exec",
+        
+        "https://script.google.com/macros/s/AKfycbz9DL93sk9jUE0_T9EvW4z53PClrruxQ5pPJx7PNnvMmHKbm1w3sXszkwlPY2QLCT1l/exec",
         {
           method: "POST",
           body: formData,
