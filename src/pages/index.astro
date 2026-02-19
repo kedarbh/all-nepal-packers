@@ -1,39 +1,53 @@
 ---
-import Hero from "./_components/Hero.astro";
-import FeaturedPost from "./_components/FeaturedPost.astro";
-import MovingProcess from "./_components/MovingProcess.astro";
-import Services from "./_components/Services.astro";
 import MainLayout from "@layouts/MainLayout.astro";
+import Hero from "./_components/Hero.astro";
+import TrustIndicators from "./_components/TrustIndicators.astro";
+import Services from "./_components/Services.astro";
+import WhyChooseUs from "./_components/WhyChooseUs.astro";
+import MovingProcess from "./_components/MovingProcess.astro";
+import Testimonials from "./_components/Testimonials.astro";
+import ContactSection from "./_components/ContactSection.astro";
+import FloatingActions from "@components/ui/FloatingActions.astro";
+import MobileStickyCTA from "@components/ui/MobileStickyCTA.astro";
+import FAQ from "@components/ui/FAQ.astro";
 import { getCollection } from "astro:content";
 import BlogPostListing from "../components/BlogPostListing.astro";
 import Wrapper from "@components/ui/Wrapper.astro";
-import SocialProof from "@components/index/SocialProof.astro";
 
-const blogEntries = await getCollection("blog");
+const blogEntries = (await getCollection("blog")).sort(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf()
+).slice(0, 3);
 ---
 
-<MainLayout title="Best Packers and Movers in Nepal">
+<MainLayout
+  title="All Nepal Packers and Movers | Best Movers in Nepal"
+  description="Professional packers and movers in Nepal offering house shifting, office relocation, and secure moving services. Trustworthy, affordable, and safe."
+>
   <Hero />
-  <SocialProof />
-  <FeaturedPost />
-  <MovingProcess />
+  <TrustIndicators />
   <Services />
-  <Wrapper>
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-      From the blog
-    </h2>
-    <p class="mt-5 text-lg leading-8 text-gray-600">
-      Learn more about moving from our very moving blog.
-    </p>
+  <WhyChooseUs />
+  <MovingProcess />
 
-    <BlogPostListing
-      blogPosts={blogEntries
-        .sort(
-          (post1, post2) =>
-            new Date(post2.data.publishedDate).valueOf() -
-            new Date(post1.data.publishedDate).valueOf()
-        )
-        .slice(0, 3)}
-    />
-  </Wrapper>
+  <section class="py-24 bg-secondary/30">
+    <Wrapper>
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div class="max-w-2xl">
+          <h2 class="text-xs font-bold text-accent uppercase tracking-widest mb-4">Latest Updates</h2>
+          <h3 class="text-3xl md:text-5xl font-bold text-dark leading-tight">
+            From Our <span class="text-primary-light italic">Blog</span>
+          </h3>
+        </div>
+        <a href="/blog" class="btn-primary px-8 py-3 text-sm">View All Posts</a>
+      </div>
+      <BlogPostListing blogPosts={blogEntries} />
+    </Wrapper>
+  </section>
+
+  <Testimonials />
+  <FAQ />
+  <ContactSection />
+
+  <FloatingActions />
+  <MobileStickyCTA />
 </MainLayout>

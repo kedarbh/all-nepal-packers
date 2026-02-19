@@ -1,25 +1,32 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import Wrapper from "@components/ui/Wrapper.astro";
+import ServiceCard from "@components/ServiceCard.astro";
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+const services = await getCollection("services");
 
 const pageSnippet = {
   "@context": "https://schema.org",
-  "@type": "test snippet",
-  "@id": "https://allnepalmovers.com.np/#website",
+  "@type": "Service",
+  "serviceType": "Moving and Relocation Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "All Nepal Packers and Movers",
+    "url": "https://allnepalmovers.com.np"
+  },
+  "areaServed": "Nepal",
+  "description": "Professional packers and movers in Nepal offering house shifting, office relocation, motorbike moving, and more."
+};
 
-  name: "All Nepal Packers and Movers",
-  description: "Moving Home, Office, flat and Motorbikes",
-  publisher: { "@id": "https://allnepalmovers.com.np/#organization" },
-  potentialAction: [
-    {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://allnepalmovers.com.np/?s={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
-  ],
-  inLanguage: "testing pagesnipet",
+const serviceIcons: Record<string, string> = {
+  "residential-moving": "family",
+  "commercial-moving": "secure",
+  "long-distance-moving": "location",
+  "motorbike-moving": "flag",
+  "packing-and-unpacking": "shooting-star",
+  "specialized-moving": "secure"
 };
 ---
 
@@ -29,20 +36,94 @@ const pageSnippet = {
   slot="pageSnippets"
 />
 
-<MainLayout title="Moving services">
-  <main class="mx-auto max-w-full px-6 lg:px-8">
-    <div class="py-32 sm:py-48">
-      <h1>Safe & Reliable Moving Services in Nepal</h1>
-      <ul>
-        <li>Local Moving</li>
-        <li>Long Distance Moving</li>
-        <li>Motobike Moving</li>
-        <li>Packing and Unpacking</li>
-        <li>Business and Office Relocation</li>
-        <li>Speciality Item Moving</li>
-      </ul>
-    </div>
-    <div></div>
-  </main>
+<MainLayout 
+  title="Safe & Reliable Moving Services in Nepal"
+  description="Explore our wide range of professional moving services including residential, commercial, long-distance, and specialized relocation solutions across Nepal."
+>
+  <!-- Modern Hero Section -->
+  <section class="relative py-24 lg:py-32 bg-dark overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/5 z-0"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-primary-light/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+    
+    <Wrapper class="relative z-10">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-light/10 border border-primary-light/30 rounded-full mb-6">
+          <Icon name="secure" class="w-4 h-4 text-primary-light" />
+          <span class="text-xs font-bold uppercase tracking-widest text-primary-light">Our Offerings</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+          Reliable <span class="text-primary-light italic">Moving Solutions</span> for Every Need
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-10">
+          From local house shifting to complex corporate relocations, we provide professional, safe, and efficient moving services tailored to your requirements across Nepal.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/free-quote" class="btn-primary flex items-center justify-center min-w-[200px] shadow-xl shadow-primary/20">
+            Start Your Move
+          </a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-24 bg-gray-50/50">
+    <Wrapper>
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold text-dark mb-4">Our Comprehensive Services</h2>
+        <div class="w-24 h-1.5 bg-primary rounded-full mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {services.map(service => (
+          <div class="group relative bg-white rounded-[2.5rem] p-8 border border-borderGray shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-primary-light/10 rounded-2xl flex items-center justify-center text-primary-light mb-8 group-hover:bg-primary-light group-hover:text-dark transition-all duration-500">
+               <Icon name={serviceIcons[service.slug] || "flag"} class="w-8 h-8" />
+            </div>
+            
+            <h3 class="text-2xl font-bold text-dark group-hover:text-primary transition-colors mb-4 line-clamp-1">
+              {service.data.title}
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-3">
+              {service.data.description}
+            </p>
+            
+            <a href={`/services/${service.slug}`} class="flex items-center text-primary font-bold text-sm uppercase tracking-wider gap-2">
+              Learn More
+              <Icon name="flag" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Lead Magnet Section -->
+  <section class="py-24 bg-white border-t border-borderGray">
+    <Wrapper>
+      <div class="bg-primary rounded-[40px] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-primary/30">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
+        
+        <div class="relative z-10">
+          <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-tight">
+            Ready to Start Your <br class="hidden md:block"/> <span class="text-primary-light italic underline decoration-4 underline-offset-8">Stress-Free Move?</span>
+          </h2>
+          <p class="text-blue-100 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            Get a personalized quote in minutes or talk to our relocation experts to plan your next move with confidence.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/free-quote" class="px-12 py-5 bg-white text-primary font-bold rounded-2xl hover:scale-105 transition-all shadow-xl text-lg">
+              Get Free Quote
+            </a>
+            <a href="/contact" class="px-12 py-5 bg-dark text-white font-bold rounded-2xl border border-white/20 hover:bg-dark/80 transition-all text-lg flex items-center justify-center gap-2">
+              <Icon name="call" class="w-5 h-5 text-primary-light" />
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
 </MainLayout>
 

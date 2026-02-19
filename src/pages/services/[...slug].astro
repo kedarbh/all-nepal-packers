@@ -1,10 +1,13 @@
 ---
-import { getCollection, getEntries, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 //components
 import MainLayout from "@layouts/MainLayout.astro";
 import Wrapper from "@components/ui/Wrapper.astro";
-import Title1 from "@components/typography/Title1.astro";
+import ServiceHero from "../_components/ServiceHero.astro";
+import ServiceDetails from "../_components/ServiceDetails.astro";
+import ContactSection from "../_components/ContactSection.astro";
+import MovingProcess from "../_components/MovingProcess.astro";
 
 type Props = {
   service: CollectionEntry<"services">;
@@ -20,12 +23,136 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 const { Content } = await service.render();
+
+// Tailored details for different services
+const serviceDetails: Record<string, { title: string; description: string }[]> = {
+  "residential-moving": [
+    { title: "Home Assessment", description: "Detailed on-site or virtual survey to plan the move." },
+    { title: "Secure Packing", description: "Using premium materials for all household items." },
+    { title: "Safe Loading", description: "Expert handling by trained residential movers." },
+    { title: "Unpacking Support", description: "Helping you set up your new home efficiently." }
+  ],
+  "commercial-moving": [
+    { title: "Project Management", description: "Dedicated coordinator for business moves." },
+    { title: "IT & Server Moving", description: "Safe transport for sensitive electronic equipment." },
+    { title: "Furniture Assembly", description: "Disassembly and setup of office workstations." },
+    { title: "Confidentiality", description: "Secure handling of files and sensitive documents." }
+  ],
+  "long-distance-moving": [
+    { title: "Route Planning", description: "Optimized logistics for inter-city transport across Nepal." },
+    { title: "Full Insurance", description: "Comprehensive coverage for long-distance hauls." },
+    { title: "Condition Reports", description: "Detailed inventory checks at origin and destination." },
+    { title: "Storage Solutions", description: "Secure transit storage options if needed." }
+  ],
+  "motorbike-moving": [
+    { title: "Custom Crating", description: "Rigid wooden frames for maximum vehicle safety." },
+    { title: "Surface Protection", description: "Premium padding to protect paint and parts." },
+    { title: "Fluid Management", description: "Safe handling of fuel and oils for transit." },
+    { title: "Door-to-door", description: "Convenient pickup and delivery across Nepal." }
+  ],
+  "packing-and-unpacking": [
+    { title: "Multi-layer Wrapping", description: "Bubble wrap, stretch film, and corrugated sheets." },
+    { title: "Fragile Specialists", description: "Expert handling for glassware and antiques." },
+    { title: "Organized Labeling", description: "Content lists for every carton for easy tracking." },
+    { title: "Material Supply", description: "Provision of high-quality cartons and tapes." }
+  ],
+  "specialized-moving": [
+    { title: "Heavy Hoisting", description: "Rigging and crane support for oversized items." },
+    { title: "Site Surveys", description: "Detailed assessment of entry and exit points." },
+    { title: "Climate Control", description: "Sensitive transport for delicate instruments." },
+    { title: "Expert Rigging", description: "Trained specialists for safes and machinery." }
+  ],
+  "local-moving": [
+    { title: "City Expertise", description: "Navigating Kathmandu's narrow streets with ease." },
+    { title: "Express Transit", description: "Same-day relocation for most local moves." },
+    { title: "Secure Handover", description: "Careful room-to-room placement of your goods." },
+    { title: "Packing Supplies", description: "Top-quality materials available for local shifts." }
+  ]
+};
+
+const serviceImages: Record<string, string> = {
+  "residential-moving": "/images/services/residential-moving.jpg",
+  "commercial-moving": "/images/services/commercial-moving.jpg",
+  "long-distance-moving": "/images/services/long-distance-moving.jpg",
+  "motorbike-moving": "/images/services/motorbike-moving.jpg",
+  "packing-and-unpacking": "/images/services/packing-and-unpacking.jpg",
+  "specialized-moving": "/images/services/specialized-moving.jpg",
+  "local-moving": "/images/services/local-moving.jpg"
+};
+
+const trustScores: Record<string, { badge: string; title: string; description: string }> = {
+  "residential-moving": {
+    badge: "Family First",
+    title: "100% Secure Home Move",
+    description: "Every household item is handled with domestic care and fully insured for your peace of mind."
+  },
+  "commercial-moving": {
+    badge: "Business continuity",
+    title: "Zero Downtime Guarantee",
+    description: "We plan office relocations with precision to ensure your business operations resume without delay."
+  },
+  "local-moving": {
+    badge: "City Experts",
+    title: "Prompt Local Delivery",
+    description: "Our local teams know every corner of Kathmandu, ensuring the fastest and safest intra-city moves."
+  },
+  "long-distance-moving": {
+    badge: "Highway Safe",
+    title: "Long Haul Security",
+    description: "Specialized trucks and expert drivers ensure your goods are safe across diverse Nepali terrains."
+  },
+  "motorbike-moving": {
+    badge: "Vehicle Care",
+    title: "Scratch-Free Transport",
+    description: "Custom crating and high-density padding guarantee your motorbike arrives in showroom condition."
+  },
+  "packing-and-unpacking": {
+    badge: "Material Quality",
+    title: "Multi-Layer Protection",
+    description: "We use only the highest grade bubble wrap and cartons to shield your valuables from any impact."
+  },
+  "specialized-moving": {
+    badge: "Expert Handling",
+    title: "Rigging Specialists",
+    description: "Trained professionals for heavy lifting of pianos, safes, and medical equipment with precision tools."
+  }
+};
+
+const items = serviceDetails[service.slug] || [];
+const image = serviceImages[service.slug] || "https://images.unsplash.com/photo-1519750783826-e2420f4d6d05?q=80&w=1200";
+const trustScore = trustScores[service.slug] || {
+  badge: "Trust Score",
+  title: "100% Secure Move",
+  description: "Your belongings are fully insured and handled with extreme care by our experts."
+};
 ---
 
-<MainLayout>
-  <Wrapper class="my-20">
-    <Title1>
-      <a href={`/services/${service.slug}/`}>{service.data.title}</a>
-    </Title1>
-  </Wrapper>
+<MainLayout 
+  title={`${service.data.title} | All Nepal Packers and Movers`}
+  description={service.data.summary}
+>
+  <ServiceHero 
+    title={service.data.title}
+    description={service.data.description}
+  />
+
+  <section class="py-24 bg-white border-b border-borderGray">
+    <Wrapper>
+      <div class="prose prose-slate prose-lg max-w-4xl mx-auto prose-headings:text-dark prose-p:text-gray-600 prose-strong:text-dark prose-a:text-primary hover:prose-a:text-primary-light">
+        <Content />
+      </div>
+    </Wrapper>
+  </section>
+
+  <ServiceDetails 
+    title={service.data.title} 
+    items={items} 
+    image={image}
+    imageAlt={`Professional illustration for ${service.data.title}`}
+    trustScore={trustScore}
+  />
+
+  <MovingProcess />
+
+  <ContactSection />
 </MainLayout>

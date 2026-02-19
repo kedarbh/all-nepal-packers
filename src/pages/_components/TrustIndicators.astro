@@ -1,0 +1,70 @@
+---
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+
+const stats = [
+    {
+        label: "Years Experience",
+        value: "10+",
+        icon: "10-plus",
+        description: "Expertise you can trust",
+    },
+    {
+        label: "Moves Completed",
+        value: "5000+",
+        icon: "shooting-star",
+        description: "Relocating dreams daily",
+    },
+    {
+        label: "Success Rate",
+        value: "100%",
+        icon: "hand-heart-fill",
+        description: "Customer satisfaction",
+    },
+    {
+        label: "Network Coverage",
+        value: "All Nepal",
+        icon: "flag",
+        description: "Service across the country",
+    },
+];
+---
+
+<section class="py-12 bg-primary relative overflow-hidden">
+    <!-- Subtle patterns -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div
+            class="absolute -left-10 -top-10 w-40 h-40 border-4 border-white rounded-full"
+        >
+        </div>
+        <div
+            class="absolute right-20 bottom-10 w-20 h-20 bg-white rounded-full"
+        >
+        </div>
+    </div>
+
+    <Wrapper>
+        <div
+            class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative z-10"
+        >
+            {
+                stats.map((stat) => (
+                    <div class="flex flex-col items-center text-center group cursor-default">
+                        <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-2 group-hover:rotate-6">
+                            <Icon name={stat.icon} class="w-8 h-8 text-white" />
+                        </div>
+                        <p class="text-3xl md:text-4xl font-black text-white mb-1 tracking-tight">
+                            {stat.value}
+                        </p>
+                        <p class="text-xs md:text-sm font-bold text-accent uppercase tracking-widest mb-1">
+                            {stat.label}
+                        </p>
+                        <p class="text-white/60 text-[10px] md:text-xs italic">
+                            {stat.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </Wrapper>
+</section>

@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import MainLayout from "@layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import BlogPostCard from "@components/BlogPostCard.astro";
+import Wrapper from "@components/ui/Wrapper.astro";
 
 const posts = await getCollection("blog");
 
@@ -43,7 +44,13 @@ function shuffledPosts(array) {
   }
   return array;
 }
-const relatedPosts = shuffledPosts(filteredPosts).slice(0, 2);
+const relatedPosts = shuffledPosts(filteredPosts).slice(0, 3);
+
+const formattedDate = data.publishedDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
 <MainLayout
@@ -54,41 +61,83 @@ const relatedPosts = shuffledPosts(filteredPosts).slice(0, 2);
   publishedDate={data.publishedDate}
   pageType="article"
 >
-  <div class="grid-container relative mx-auto max-w-screen-md md:z-10">
-    <div
-      class="mx-auto w-fit max-w-full py-8 px-6 md:px-10 md:py-12 lg:px-12 lg:py-16 xl:p-16 xl:py-20"
-    >
-      <header class="pb-10">
-        <h1 class="text-4xl font-bold">
-          {post.data.title}
-        </h1>
-        <time
-          datetime={post.data.publishedDate.toDateString()}
-          class="text-gray-500">{post.data.publishedDate.toDateString()}</time
-        >
-      </header>
-      <div class="py-5">
-        <Image
-          src={data.coverImage}
-          widths={[240, 540, 720, data.coverImage.width]}
-          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${data.coverImage.width}px`}
-          alt={data.title}
-          loading="eager"
-          fetchpriority="high"
-        />
+  <!-- Post Hero: Two-column layout with image on right -->
+  <section class="py-16 bg-dark text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-0"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -z-0"></div>
+    <Wrapper class="relative z-10">
+      <!-- Back link -->
+      <a href="/blog" class="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary-light transition-colors mb-10">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Blog
+      </a>
+      <!-- Two column grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Text -->
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="h-1 w-8 rounded-full bg-primary-light"></div>
+            <time datetime={data.publishedDate.toISOString()} class="text-sm font-bold text-gray-400 uppercase tracking-widest">
+              {formattedDate}
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
+            {data.title}
+          </h1>
+          {data.description && (
+            <p class="mt-5 text-lg text-gray-400 leading-relaxed">{data.description}</p>
+          )}
+        </div>
+        <!-- Right: Cover Image -->
+        <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3]">
+          <Image
+            src={data.coverImage}
+            widths={[240, 540, 720, data.coverImage.width]}
+            sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${data.coverImage.width}px`}
+            alt={data.title}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
       </div>
+    </Wrapper>
+  </section>
 
-      <article class="prose prose-slate" aria-label={post.data.title}>
+  <!-- Article Content -->
+  <section class="py-16 bg-white">
+    <Wrapper>
+      <article
+        class="prose prose-slate prose-lg max-w-3xl mx-auto prose-headings:text-dark prose-headings:font-black prose-p:text-gray-600 prose-a:text-primary hover:prose-a:text-primary-light prose-strong:text-dark prose-img:rounded-2xl prose-img:shadow-lg"
+        aria-label={data.title}
+      >
         <Content />
       </article>
-    </div>
+    </Wrapper>
+  </section>
 
-    <!-- related post here -->
-    <div class="px-8">
-      <h2 class="text-2xl font-bold my-10">Read Next</h2>
-      <div class="grid md:grid-cols-2 gap-10">
-        {relatedPosts.map((post: any) => <BlogPostCard post={post} />)}
-      </div>
-    </div>
-  </div>
+  <!-- Related Posts -->
+  {relatedPosts.length > 0 && (
+    <section class="py-24 bg-secondary/30 border-t border-borderGray">
+      <Wrapper>
+        <div class="flex items-end justify-between mb-12">
+          <div>
+            <h2 class="text-xs font-bold text-accent uppercase tracking-widest mb-3">Continue Reading</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-dark">Related <span class="text-primary italic">Articles</span></h3>
+          </div>
+          <a href="/blog" class="hidden md:flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-light transition-colors">
+            View All Posts
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {relatedPosts.map((post: any) => <BlogPostCard post={post} />)}
+        </div>
+      </Wrapper>
+    </section>
+  )}
 </MainLayout>

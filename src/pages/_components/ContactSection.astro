@@ -1,0 +1,216 @@
+---
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="pt-24 pb-12 bg-dark text-white relative overflow-hidden" id="contact">
+    <!-- Decoration -->
+    <div
+        class="absolute -right-20 -bottom-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+        class="absolute -left-20 top-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl"
+    >
+    </div>
+
+    <Wrapper>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <!-- Contact Info -->
+            <div class="space-y-12">
+                <div class="space-y-6">
+                    <h2
+                        class="text-xs font-bold text-accent uppercase tracking-widest"
+                    >
+                        Contact Us
+                    </h2>
+                    <h3 class="text-3xl md:text-5xl font-bold leading-tight">
+                        Ready to Move? <br />
+                        <span class="text-primary-light italic"
+                            >Let's Get Started!</span
+                        >
+                    </h3>
+                    <p class="text-gray-400 text-lg leading-relaxed max-w-md">
+                        Fill out the form and our relocation experts will get
+                        back to you within 2 hours with a customized quote.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="flex items-center gap-6 group">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-lg"
+                        >
+                            <Icon name="call" class="w-7 h-7" />
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">
+                                Call for instant help
+                            </p>
+                            <a
+                                href="tel:+9779843472589"
+                                class="text-xl font-bold hover:text-primary transition-colors text-white"
+                                >+977-9843472589</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 group">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-lg"
+                        >
+                            <Icon name="email-filled" class="w-7 h-7" />
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400 mb-1">
+                                Email us at
+                            </p>
+                            <a
+                                href="mailto:info@allnepalmovers.com.np"
+                                class="text-xl font-bold hover:text-primary transition-colors text-white"
+                                >info@allnepalmovers.com.np</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 group">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-lg"
+                        >
+                            <Icon name="location-filled" class="w-7 h-7" />
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400 mb-1">
+                                Our Location
+                            </p>
+                            <p class="text-xl font-bold text-white">Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="p-8 bg-primary/10 border border-primary/20 rounded-3xl inline-block"
+                >
+                    <p class="text-white font-bold mb-2">Office Hours:</p>
+                    <p class="text-gray-300/70">Sun - Fri: 8:00 AM - 8:00 PM</p>
+                    <p class="text-gray-300/70">Sat: Closed (Inquiries Open)</p>
+                </div>
+            </div>
+
+            <!-- Form Card -->
+            <div
+                class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl relative text-dark"
+            >
+                <form class="space-y-6" id="quoteForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label
+                                for="name"
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400"
+                                >Full Name</label
+                            >
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder="John Doe"
+                                class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                            />
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                for="phone"
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400"
+                                >Phone Number</label
+                            >
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                required
+                                placeholder="+977-98XXXXXXXX"
+                                class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label
+                                for="from"
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400"
+                                >Moving From</label
+                            >
+                            <input
+                                type="text"
+                                id="from"
+                                name="from"
+                                required
+                                placeholder="Pick-up City"
+                                class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                            />
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                for="to"
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400"
+                                >Moving To</label
+                            >
+                            <input
+                                type="text"
+                                id="to"
+                                name="to"
+                                required
+                                placeholder="Destination City"
+                                class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label
+                            for="date"
+                            class="text-xs font-bold uppercase tracking-wider text-gray-400"
+                            >Preferred Moving Date</label
+                        >
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            required
+                            class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                        />
+                    </div>
+
+                    <div class="space-y-2">
+                        <label
+                            for="message"
+                            class="text-xs font-bold uppercase tracking-wider text-gray-400"
+                            >Message (Optional)</label
+                        >
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            placeholder="How can we help you?"
+                            class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                        ></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full py-4 bg-accent text-white font-bold rounded-xl shadow-lg shadow-accent/20 hover:scale-[1.02] active:scale-[0.98] transition-all text-lg"
+                    >
+                        Submit Request
+                    </button>
+                    <p
+                        class="text-[10px] text-center text-gray-400 mt-4 italic"
+                    >
+                        * Your privacy is our priority. No spam, guaranteed.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </Wrapper>
+</section>

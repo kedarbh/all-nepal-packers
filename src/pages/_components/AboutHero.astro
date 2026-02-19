@@ -1,0 +1,84 @@
+---
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+
+const features = [
+  {
+    title: "Our Story",
+    description: "Founded with a vision to redefine relocation in Nepal, we started as a small team with a big dream: making moving stress-free and reliable for every household and business.",
+    icon: "hand-heart-fill"
+  },
+  {
+    title: "Our Mission",
+    description: "Our mission is simple: to provide safe, efficient, and affordable packing and moving solutions that exceed expectations, ensuring your belongings reach their destination with care.",
+    icon: "flag"
+  },
+  {
+    title: "What Sets Us Apart",
+    description: "What makes us unique is our commitment to excellence, personalized service, and a highly trained team that treats your valuables as if they were our own.",
+    icon: "shooting-star"
+  }
+];
+
+const stats = [
+  { label: "Happy customers", value: "2000", suffix: "+" },
+  { label: "Client satisfaction", value: "99", suffix: "%" },
+  { label: "Team members", value: "50", suffix: "M" },
+  { label: "Years of experience", value: "10", suffix: "+" }
+];
+---
+
+<section class="py-20 bg-white">
+  <Wrapper>
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight max-w-2xl">
+        Your reliable partner for <span class="text-primary-light italic">every kind of move</span>
+      </h1>
+      <p class="text-slate-600 text-lg leading-relaxed max-w-lg pt-4">
+        Whether it's your home, office, a single room, an apartment, or a large warehouse, All Nepal Packers provides tailored relocation solutions. We ensure a seamless transition for every client, handling your valuables with the utmost care and professionalism.
+      </p>
+    </div>
+
+    <!-- Features -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+      {features.map(feature => (
+        <div class="flex flex-col">
+          <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-primary mb-6">
+            <Icon name={feature.icon} class="w-8 h-8" />
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-4">{feature.title}</h3>
+          <p class="text-slate-600 leading-relaxed">
+            {feature.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Hero Image Area -->
+    <div class="relative w-full aspect-[21/9] rounded-[40px] overflow-hidden mb-20 shadow-2xl">
+      <img 
+        src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=2000" 
+        alt="Packers and Movers at work" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-slate-100">
+      {stats.map((stat, index) => (
+        <div class="flex flex-col items-center md:items-start relative">
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl md:text-5xl font-bold text-slate-900">{stat.value}</span>
+            <span class="text-2xl font-bold text-primary-light">{stat.suffix}</span>
+          </div>
+          <p class="text-sm text-slate-500 font-medium uppercase tracking-wider mt-2">{stat.label}</p>
+          {index !== stats.length - 1 && (
+            <div class="hidden md:block absolute right-0 top-1/4 h-1/2 w-[1px] bg-slate-200"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </Wrapper>
+</section>

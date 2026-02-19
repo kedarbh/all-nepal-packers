@@ -1,186 +1,78 @@
 ---
 import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+
+const steps = [
+  {
+    title: "Request Quote",
+    description: "Fill out our simple form or call us for a free, no-obligation moving estimate.",
+    icon: "location"
+  },
+  {
+    title: "Schedule Move",
+    description: "We'll coordinate a date and time that perfectly fits your relocation schedule.",
+    icon: "10-plus"
+  },
+  {
+    title: "Packing",
+    description: "Our expert team uses premium materials to securely pack all your belongings.",
+    icon: "hand-heart-fill"
+  },
+  {
+    title: "Transportation",
+    description: "Your goods are transported safely in our modern, well-maintained fleet.",
+    icon: "secure"
+  },
+  {
+    title: "Delivery",
+    description: "Safe unloading and careful placement of items in your new home or office.",
+    icon: "flag"
+  }
+];
 ---
 
-<Wrapper>
-  <div
-    class="relative isolate overflow-hidden bg-white py-24 sm:py-32 lg:overflow-visible "
-  >
-    <div
-      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
-    >
-      <div
-        class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-      >
-        <div class="lg:pr-4">
-          <div class="lg:max-w-lg">
-            <h2
-              class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-            >
-              Your Smooth Move Starts Here
-            </h2>
-            <p class="mt-6 text-xl leading-8 text-gray-700">
-              Take the stress out of moving with All Nepal Packers and Movers
-              streamlined approach.
-            </p>
-          </div>
-        </div>
+<section class="py-24 bg-dark text-white relative overflow-hidden">
+  <!-- Decoration -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-0"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-[100px] -z-0"></div>
+
+  <Wrapper class="relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-light/10 border border-primary-light/30 rounded-full mb-6">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary-light italic">How it Works</span>
       </div>
-      <div
-        class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
-      >
-        <img
-          class="w-[48rem] max-w-none bg-gray-900 rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-          src="./moving_01.svg"
-          alt="Mover is carrying a box"
-          loading="lazy"
-        />
-      </div>
-      <div
-        class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-      >
-        <div class="lg:pr-4">
-          <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-            <p>
-              Moving shouldn't be a source of worry. We understand the
-              importance of a smooth and hassle-free relocation. That's why
-              we've created a clear, step-by-step process that guides you from
-              your initial inquiry to settling comfortably in your new home.
-            </p>
-            <ul role="list" class="mt-8 space-y-8 text-gray-600">
-              <li class="flex gap-x-3">
-                <svg
-                  class="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  viewBox="0 0 36 36"
-                  ><path
-                    fill="currentColor"
-                    d="m33 6.4l-3.7-3.7a1.71 1.71 0 0 0-2.36 0L23.65 6H6a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h22a2 2 0 0 0 2-2V11.76l3-3a1.67 1.67 0 0 0 0-2.36M18.83 20.13l-4.19.93l1-4.15l9.55-9.57l3.23 3.23ZM29.5 9.43L26.27 6.2l1.85-1.85l3.23 3.23Z"
-                    class="clr-i-solid clr-i-solid-path-1"></path><path
-                    fill="none"
-                    d="M0 0h36v36H0z"></path></svg
-                >
-                <span
-                  ><strong class="font-semibold text-gray-900"
-                    >Initial Consultation</strong
-                  > Reach out to us for a free, no-obligation quote. We’ll gather
-                  all the essential details about your move. For precise estimates,
-                  we can conduct an in-home survey to assess the volume and specific
-                  needs.</span
-                >
-              </li>
-              <li class="flex gap-x-3">
-                <svg
-                  class="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                    clip-rule="evenodd"></path>
-                </svg>
-                <span
-                  ><strong class="font-semibold text-gray-900"
-                    >Customized Moving Plan</strong
-                  > We create a personalized moving plan based on your requirements,
-                  including packing services and special handling. We establish a
-                  convenient moving date and timeline to minimize disruption to your
-                  life or business.</span
-                >
-              </li>
-              <li class="flex gap-x-3">
-                <svg
-                  class="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  viewBox="0 0 640 512"
-                  ><path
-                    fill="currentColor"
-                    d="M256 48c0-26.5 21.5-48 48-48h288c26.5 0 48 21.5 48 48v416c0 26.5-21.5 48-48 48H381.3c1.8-5 2.7-10.4 2.7-16V253.3c18.6-6.6 32-24.4 32-45.3v-32c0-26.5-21.5-48-48-48H256zm315.3 299.3c6.2-6.2 6.2-16.4 0-22.6l-64-64c-6.2-6.2-16.4-6.2-22.6 0l-64 64c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l36.7-36.7V432c0 8.8 7.2 16 16 16s16-7.2 16-16V310.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0M0 176c0-8.8 7.2-16 16-16h352c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H16c-8.8 0-16-7.2-16-16zm352 80v224c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V256zm-208 64c-8.8 0-16 7.2-16 16s7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16z"
-                  ></path></svg
-                >
-                <span
-                  ><strong class="font-semibold text-gray-900"
-                    >Packing and Preparation</strong
-                  > Our team uses high-quality materials to securely pack your belongings,
-                  labeling all boxes for easy unpacking. We offer disassembly services
-                  for larger items, ensuring safe transportation and reassembly at
-                  your new location.</span
-                >
-              </li>
-              <li class="flex gap-x-3">
-                <svg
-                  class="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  viewBox="0 0 640 512"
-                  ><path
-                    fill="currentColor"
-                    d="M64 32C28.7 32 0 60.7 0 96v304c0 44.2 35.8 80 80 80c26.2 0 49.4-12.6 64-32c14.6 19.4 37.8 32 64 32c44.2 0 80-35.8 80-80c0-5.5-.6-10.8-1.6-16h163.2c-1 5.2-1.6 10.5-1.6 16c0 44.2 35.8 80 80 80s80-35.8 80-80c0-5.5-.6-10.8-1.6-16h1.6c17.7 0 32-14.3 32-32v-90.3c0-9.2-3.2-18.2-9-25.3l-58.8-71.8c-10.6-13-26.5-20.5-43.3-20.5H480V96c0-35.3-28.7-64-64-64zm521 224H480v-64h48.8c2.4 0 4.7 1.1 6.2 2.9zm-57 112a32 32 0 1 1 0 64a32 32 0 1 1 0-64m-352 32a32 32 0 1 1 64 0a32 32 0 1 1-64 0m-96-32a32 32 0 1 1 0 64a32 32 0 1 1 0-64"
-                  ></path></svg
-                >
-                <span
-                  ><strong class="font-semibold text-gray-900"
-                    >Moving Day</strong
-                  >
-                  Our team arrives on time and handles the loading process with care,
-                  using modern equipment for safe handling. Your belongings are transported
-                  in our well-maintained, secure trucks to ensure they arrive safely.</span
-                >
-              </li>
-              <li class="flex gap-x-3">
-                <svg
-                  class="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  viewBox="0 0 512 512"
-                  ><path
-                    fill="currentColor"
-                    d="M61.39 25.39C93.9 58.33 115.8 96.55 133.3 134.5c4.9-12 7.3-22.2 18.9-32.3c47 26.5 60.3 43.3 64.4 80.4h66.8c1.8-36 7.6-56.3 36.5-82.81c15.9 12.41 20 26.91 28.1 40.71c8.5-38.9 37.3-81.28 76.7-101.89c-52.5-11.56-108.5-.43-153.3 17.54c9.3 6.39 22.7 11.23 26.9 19.5c-19 9.79-39.5 42.35-51.2 69.35c-14.1-25.1-43.5-53.44-72-67.64c11.5-11.58 23-15.79 34.5-22.89C176.6 36.1 117.5 27 61.39 25.39m8.85 175.21l-41.25 110H137.8l41.2-110zm134.76 0l41.2 110H483l-41.2-110zm-22 40.6l-32.8 87.4H73v158h110zm18 0v245.4h238v-158H233.8z"
-                  ></path></svg
-                >
-                <span
-                  ><strong class="font-semibold text-gray-900"
-                    >Unloading and Setup</strong
-                  >
-                  Upon arrival, we carefully unload your items and place them in
-                  designated rooms as per your instructions. We reassemble any disassembled
-                  items and assist with the initial setup to make your new place
-                  functional.</span
-                >
-              </li>
-              <li class="flex gap-x-3">
-                <svg
-                  class="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  ><path
-                    fill="currentColor"
-                    d="M3 23v-7q0-2.075 1.463-3.537T8 11h1V3q0-.825.588-1.412T11 1h2q.825 0 1.413.588T15 3v8h1q2.075 0 3.538 1.463T21 16v7zm2-2h2v-3q0-.425.288-.712T8 17t.713.288T9 18v3h2v-3q0-.425.288-.712T12 17t.713.288T13 18v3h2v-3q0-.425.288-.712T16 17t.713.288T17 18v3h2v-5q0-1.25-.875-2.125T16 13H8q-1.25 0-2.125.875T5 16z"
-                  ></path></svg
-                >
-                <span
-                  ><strong class="font-semibold text-gray-900"
-                    >Post-Move Support</strong
-                  >
-                  We take care of any packing materials and debris, leaving your
-                  new place clean and tidy. Our team conducts survey to ensure everything
-                  went smoothly and to address any additional needs.</span
-                >
-              </li>
-            </ul>
-            <p class="mt-8">
-              Now that you've seen our clear moving process, you can move with
-              confidence! Contact All Nepal Packers and Movers today and let us
-              take the stress out of your relocation.
-            </p>
+      <h3 class="text-4xl md:text-5xl font-bold text-white">Our <span class="text-primary-light italic">Seamless</span> Moving Process</h3>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="relative">
+      <!-- Desktop Timeline Line -->
+      <div class="absolute top-8 left-0 w-full h-0.5 bg-white/5 hidden lg:block"></div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 relative z-10">
+        {steps.map((step, index) => (
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-full h-full flex flex-col items-center">
+              <!-- Icon/Number Circle -->
+              <div class="relative mb-8 inline-block">
+                <div class="w-16 h-16 rounded-2xl bg-primary-light flex items-center justify-center text-dark shadow-lg shadow-primary-light/30 transition-all duration-300 group-hover:scale-110 z-10 relative">
+                  <Icon name={step.icon} class="w-8 h-8" />
+                  <!-- Step Number Badge -->
+                  <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-gray-300 text-dark flex items-center justify-center text-sm font-bold shadow-lg border-4 border-dark z-20">
+                    {index + 1}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <h4 class="text-xl font-bold text-white mb-4 group-hover:text-primary-light transition-colors">{step.title}</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
-</Wrapper>
+  </Wrapper>
+</section>

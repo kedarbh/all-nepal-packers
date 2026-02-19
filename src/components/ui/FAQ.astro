@@ -1,0 +1,98 @@
+---
+import Wrapper from "./Wrapper.astro";
+
+const faqs = [
+    {
+        question: "How much does it cost to move within Kathmandu?",
+        answer: "The cost depends on the volume of goods, distance, and services required (like packing/unpacking). Contact us for a precise free quote customized to your needs.",
+    },
+    {
+        question: "Do you provide insurance for my belongings?",
+        answer: "Yes, we offer comprehensive transit insurance to ensure your items are protected against any unforeseen circumstances during the move.",
+    },
+    {
+        question: "How far in advance should I book my move?",
+        answer: "We recommend booking at least 1-2 weeks in advance, especially during peak moving seasons, to ensure your preferred date is available.",
+    },
+    {
+        question: "Do you provide packing materials?",
+        answer: "Absolutely! We use high-quality bubble wrap, sturdy boxes, specialized tapes, and protective blankets to ensure the maximum safety of your items.",
+    },
+    {
+        question: "Can you move my car or motorbike?",
+        answer: "Yes, we have specialized vehicle transport services to safely move your cars and motorcycles across Nepal.",
+    },
+    {
+        question: "Do you disassemble and assemble furniture?",
+        answer: "Yes, we offer furniture dismantling and reassembly services as part of our moving packages.",
+    },
+];
+---
+
+<section class="py-24 bg-white" id="faq">
+  <Wrapper>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24">
+      <!-- Left Column: Heading & CTA -->
+      <div class="lg:col-span-1">
+        <div class="sticky top-24">
+          <h2 class="text-xs font-bold text-accent uppercase tracking-widest mb-4">
+            Common Questions
+          </h2>
+          <h3 class="text-3xl md:text-5xl font-bold text-dark leading-tight mb-8">
+            Frequently Asked <span class="text-primary-light italic">Questions</span>
+          </h3>
+          
+          <!-- CTA Card -->
+          <div class="bg-primary/5 rounded-3xl p-8 border border-primary/10">
+            <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white mb-6 shadow-lg shadow-primary/20">
+               <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+               </svg>
+            </div>
+            <h4 class="text-xl font-bold text-dark mb-2">Still have questions?</h4>
+            <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+              Can't find the answer you're looking for? Please chat to our friendly team.
+            </p>
+            <a href="/contact" class="inline-flex items-center justify-center w-full px-6 py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/20 group">
+              Get in Touch
+              <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Accordion -->
+      <div class="lg:col-span-2">
+        <div class="space-y-4">
+          {faqs.map((faq, index) => (
+            <details class="group bg-white open:bg-gray-50 rounded-2xl border border-gray-100 open:border-primary/20 transition-all duration-300">
+              <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                <span class="font-bold text-dark text-lg group-hover:text-primary transition-colors pr-8">{faq.question}</span>
+                <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-primary group-open:bg-primary group-open:text-white transition-all">
+                  <svg class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>
+
+<style>
+  /* Remove default summary marker */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

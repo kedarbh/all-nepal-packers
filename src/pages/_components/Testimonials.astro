@@ -1,0 +1,109 @@
+---
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+
+const testimonials = [
+  {
+    name: "Ramesh Khatri",
+    location: "Kathmandu",
+    text: "All Nepal Packers and Movers made my house shifting so easy! The team was professional, the packing was secure, and everything arrived without a scratch. Truly the best in Nepal.",
+    stars: 5
+  },
+  {
+    name: "Sita Sharma",
+    location: "Pokhara",
+    text: "I was worried about moving my delicate furniture, but they handled everything with extreme care. Their pricing is transparent and the service is top-notch. Highly recommended!",
+    stars: 5
+  },
+  {
+    name: "Binod Adhikari",
+    location: "Lalitpur",
+    text: "Relocating our office was a huge task, but these guys handled it efficiently. Minimal downtime for our business and very organized process. Great job!",
+    stars: 5
+  },
+  {
+    name: "Anjali Gurung",
+    location: "Bharatpur",
+    text: "Timely delivery and very helpful staff. They even helped with the initial setup at our new home. A completely stress-free experience from start to finish.",
+    stars: 5
+  }
+];
+---
+
+<section class="py-24 bg-white overflow-hidden">
+  <Wrapper>
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div class="max-w-2xl">
+        <h2 class="text-xs font-bold text-accent uppercase tracking-widest mb-4">Testimonials</h2>
+        <h3 class="text-3xl md:text-5xl font-bold text-dark leading-tight">
+          What Our <span class="text-primary-light italic">Happy Clients</span> Say
+        </h3>
+      </div>
+      <div class="flex gap-4 md:hidden">
+        <button id="prevTest" class="w-12 h-12 rounded-full border border-borderGray flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all shadow-sm">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button id="nextTest" class="w-12 h-12 rounded-full border border-borderGray flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all shadow-sm">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Slider Container -->
+    <div id="testimonialSlider" class="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto md:overflow-visible pb-12 md:pb-0 snap-x md:snap-none px-4 -mx-4 md:px-0 md:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+      {testimonials.map(t => (
+        <div class="min-w-full md:min-w-0 h-full bg-white p-6 md:p-10 rounded-[40px] border border-borderGray hover:border-primary/10 hover:shadow-md transition-all duration-500 relative shrink-0 snap-center group flex flex-col">
+          <!-- Quote Icon -->
+          <div class="mb-8">
+            <div class="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center text-primary/30 group-hover:text-primary transition-colors">
+              <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017L11.017 4H21.017C22.1216 4 23.017 4.89543 23.017 6V15C23.017 18.3137 20.3307 21 17.017 21H14.017ZM1.017 21L1.017 18C1.017 16.8954 1.91243 16 3.017 16H6.017C6.56928 16 7.017 15.5523 7.017 15V9C7.017 8.44772 6.56928 8 6.017 8H2.01701C1.46472 8 1.017 8.44772 1.017 9V12C1.017 12.5523 0.569299 13 0.0170135 13H-1.98299L-1.98299 4H8.017C9.12157 4 10.017 4.89543 10.017 6V15C10.017 18.3137 7.33072 21 4.017 21H1.017Z" /></svg>
+            </div>
+          </div>
+
+          <div class="flex gap-1 mb-6">
+            {[...Array(t.stars)].map(() => (
+              <Icon name="shooting-star" class="w-4 h-4 text-accent" />
+            ))}
+          </div>
+
+          <p class="text-gray-700 leading-relaxed mb-10 text-lg font-medium italic whitespace-normal text-pretty min-w-0">
+            "{t.text}"
+          </p>
+
+          <div class="flex items-center gap-4 pt-8 border-t border-gray-50">
+            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center font-bold text-white text-xl shadow-lg shadow-primary/20">
+              {t.name[0]}
+            </div>
+            <div>
+              <p class="font-bold text-dark mb-0.5">{t.name}</p>
+              <div class="flex items-center gap-2">
+                <Icon name="location" class="w-3 h-3 text-primary" />
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">{t.location}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Wrapper>
+</section>
+
+<script>
+  const slider = document.getElementById('testimonialSlider');
+  const prevBtn = document.getElementById('prevTest');
+  const nextBtn = document.getElementById('nextTest');
+
+  nextBtn?.addEventListener('click', () => {
+    if (slider) {
+        const itemWidth = slider.querySelector('div')?.clientWidth || 0;
+        slider.scrollBy({ left: itemWidth + 24, behavior: 'smooth' });
+    }
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    if (slider) {
+        const itemWidth = slider.querySelector('div')?.clientWidth || 0;
+        slider.scrollBy({ left: -(itemWidth + 24), behavior: 'smooth' });
+    }
+  });
+</script>

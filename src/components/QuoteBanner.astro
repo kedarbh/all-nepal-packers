@@ -1,275 +1,242 @@
 ---
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
 
+const reasons = [
+  { icon: "secure",          text: "Transparent pricing — no hidden charges" },
+  { icon: "shooting-star",   text: "Trained, professional moving team" },
+  { icon: "10-plus",         text: "10+ years experience across Nepal" },
+  { icon: "location-filled", text: "Nationwide coverage — every district" },
+  { icon: "flag",            text: "On-time pickup and delivery, guaranteed" },
+  { icon: "hand-heart-fill", text: "Customer satisfaction, always first" },
+];
 ---
 
-<style>
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+<!-- Hero -->
+<section class="py-24 bg-dark text-white relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-0"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-[100px] -z-0"></div>
+  <Wrapper class="relative z-10">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-light/10 border border-primary-light/30 rounded-full mb-6">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-light italic">100% Free · No Obligation</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-white leading-tight max-w-3xl">
+      Get Your <span class="text-primary-light italic">Free</span> Moving Quote
+    </h1>
+    <p class="mt-5 text-lg text-gray-400 max-w-2xl leading-relaxed">
+      Tell us about your move and we'll get back to you with a competitive quote within hours — no commitment required.
+    </p>
+  </Wrapper>
+</section>
 
-  .modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
+<!-- Form Section -->
+<section class="py-20 bg-white">
+  <Wrapper>
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+      <!-- Form: 3 cols wide -->
+      <div class="lg:col-span-3">
+        <h2 class="text-2xl font-bold text-dark mb-1">Request a Quote</h2>
+        <p class="text-gray-500 text-sm mb-8">Fill in the details below and we'll reach out with a tailored estimate.</p>
 
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-</style>
+        <div id="quoteSuccess" class="hidden text-sm mb-6 border p-4 rounded-xl"></div>
 
-<div class="h-80 bg-indigo-950 shadow-sm shadow-stone-700 flex items-center">
-  <div class="max-w-screen-2xl mx-auto container text-indigo-50 px-8">
-    <h1 class="text-3xl md:text-4xl font-bold">Get Your Free Moving Quote</h1>
-    <p class="mt-2 text-lg">From Nepal's Top Packers and Movers</p>
-  </div>
-</div>
-<!-- Banner Section -->
+        <form id="movingForm" class="space-y-5">
+          <!-- Full Name -->
+          <div>
+            <label for="full-name" class="block text-sm font-semibold text-dark mb-2">
+              Full Name <span class="text-accent">*</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              required
+              id="full-name"
+              autocomplete="given-name"
+              placeholder="Ram Sharma"
+              class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+            />
+          </div>
 
-<!--  -->
-
-<!-- Main Content Section -->
-<div class="container mx-auto my-8 px-4">
-  <div class="flex flex-wrap lg:flex-nowrap">
-    <div
-      class="w-full lg:w-1/2 bg-white p-6 shadow-md rounded-md mb-8 lg:mb-0 lg:mr-4"
-    >
-      <form id="movingForm">
-        <h2 class="text-2xl font-semibold mb-4">Request a Free Quote</h2>
-        <div class="space-y-12">
-          <div class="pb-2">
-            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-              <div>
-                <label
-                  for="full-name"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Full Name</label
-                >
-                <div class="mt-2">
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    id="full-name"
-                    autocomplete="given-name"
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  for="phone-number"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Phone Number</label
-                >
-                <div class="mt-2">
-                  <input
-                    type="tel"
-                    name="phone"
-                    id="phone-number"
-                    autocomplete="tel-national"
-                    pattern="[0-9]{10}"
-                    required
-                    title="Mobile Number should be 10 digit long"
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Email address</label
-                >
-                <div class="mt-2">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    required
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  for="move-type"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Move Type</label
-                >
-                <div class="mt-2">
-                  <select
-                    id="move-type"
-                    name="moveType"
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                  >
-                    <option value="Apartment">Apartment</option>
-                    <option value="Flat">Flat</option>
-                    <option value="House">House</option>
-                    <option value="Office">Office</option>
-                    <option value="Motorbike">Motorbike</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label
-                  for="move-from"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Moving From</label
-                >
-                <div class="mt-2">
-                  <input
-                    type="text"
-                    name="moveFrom"
-                    id="move-from"
-                    required
-                    autocomplete="address-level2"
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  for="move-to"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Moving To</label
-                >
-                <div class="mt-2">
-                  <input
-                    type="text"
-                    name="moveTo"
-                    id="move-to"
-                    required
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
+          <!-- Phone + Email -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="phone-number" class="block text-sm font-semibold text-dark mb-2">
+                Phone Number <span class="text-accent">*</span>
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone-number"
+                autocomplete="tel-national"
+                pattern="[0-9]{10}"
+                required
+                placeholder="9843472589"
+                title="Mobile Number should be 10 digits"
+                class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-semibold text-dark mb-2">
+                Email Address <span class="text-accent">*</span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="ram@example.com"
+                class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              />
             </div>
           </div>
-        </div>
 
-        <div class="mt-6 flex items-center gap-x-6">
+          <!-- Move Type -->
+          <div>
+            <label for="move-type" class="block text-sm font-semibold text-dark mb-2">
+              Move Type <span class="text-accent">*</span>
+            </label>
+            <select
+              id="move-type"
+              name="moveType"
+              class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+            >
+              <option value="Apartment">Apartment / Flat</option>
+              <option value="House">House</option>
+              <option value="Office">Office</option>
+              <option value="Motorbike">Motorbike</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Moving From + Moving To -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="move-from" class="block text-sm font-semibold text-dark mb-2">
+                Moving From <span class="text-accent">*</span>
+              </label>
+              <input
+                type="text"
+                name="moveFrom"
+                id="move-from"
+                required
+                autocomplete="address-level2"
+                placeholder="e.g. Kathmandu"
+                class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              />
+            </div>
+            <div>
+              <label for="move-to" class="block text-sm font-semibold text-dark mb-2">
+                Moving To <span class="text-accent">*</span>
+              </label>
+              <input
+                type="text"
+                name="moveTo"
+                id="move-to"
+                required
+                placeholder="e.g. Pokhara"
+                class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              />
+            </div>
+          </div>
+
           <button
             type="submit"
-            class="w-full rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >Get a Quote</button
+            class="w-full btn-primary py-4 text-base font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
           >
-        </div>
-      </form>
-      <div id="myModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p id="modalMessage"></p>
+            Get My Free Quote
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+
+          <p class="text-center text-xs text-gray-400">
+            We'll contact you within a few hours. No commitment required.
+          </p>
+        </form>
+
+        <!-- Modal (keep existing functionality) -->
+        <div id="myModal" style="display:none;position:fixed;z-index:50;inset:0;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;" class="flex">
+          <div class="bg-white rounded-2xl p-8 shadow-2xl max-w-sm w-full mx-4 relative">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-dark text-2xl font-bold leading-none">&times;</button>
+            <p id="modalMessage" class="text-dark font-semibold text-base text-center mt-2"></p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div
-      class="w-full lg:w-1/2 bg-white p-6 shadow-md rounded-md mb-8 lg:mb-0 lg:mr-4"
-    >
-      <!-- Features Section -->
+      <!-- Right col: Why Choose Us — 2 cols wide -->
+      <div class="lg:col-span-2">
+        <div class="sticky top-8">
+          <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Why Choose Us</h3>
+          <ul class="space-y-4">
+            {reasons.map(r => (
+              <li class="flex items-start gap-4">
+                <div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
+                  <Icon name={r.icon} class="w-5 h-5" />
+                </div>
+                <span class="text-sm text-dark font-medium leading-relaxed pt-1.5">{r.text}</span>
+              </li>
+            ))}
+          </ul>
 
-      <h2 class="text-2xl font-semibold mb-4">Why Choose Us?</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>Reliable and Professional Service</li>
-        <li>Experienced and Skilled Team</li>
-        <li>Affordable Pricing</li>
-        <li>Comprehensive Moving Solutions</li>
-        <li>Customer Satisfaction Guaranteed</li>
-        <li>Nationwide Coverage</li>
-      </ul>
-      <!-- Services Section -->
-      <h2 class="text-2xl font-semibold mt-20">Our Services</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>Local Moves</li>
-        <li>Long Distance Moves</li>
-        <li>Business Relocation</li>
-        <li>Motorbike Transportation</li>
-      </ul>
+          <!-- Trust badge -->
+          <div class="mt-10 p-5 bg-dark rounded-2xl">
+            <p class="text-xs font-bold text-primary-light uppercase tracking-widest mb-3">Get in touch directly</p>
+            <a
+              href="tel:+9779843472589"
+              class="flex items-center gap-3 text-white hover:text-primary-light transition-colors"
+            >
+              <div class="w-9 h-9 bg-primary-light/20 rounded-xl flex items-center justify-center">
+                <Icon name="call" class="w-5 h-5 text-primary-light" />
+              </div>
+              <span class="text-lg font-bold">+977-9843472589</span>
+            </a>
+            <p class="text-xs text-gray-500 mt-2">Available Sun–Fri, 7 AM – 7 PM</p>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
-</div>
+  </Wrapper>
+</section>
 
 <script>
-  let modal = document.getElementById("myModal");
-  let modalMessage = document.getElementById("modalMessage");
+  const modal = document.getElementById("myModal") as HTMLDivElement | null;
+  const modalMessage = document.getElementById("modalMessage") as HTMLParagraphElement | null;
 
-  // Function to show the modal
   function showModal(message: string) {
-    // Set the message in the modal
-    modalMessage.textContent = message;
-
-    // Show the modal
-    modal.style.display = "block";
-
-    // Add event listener to close the modal when the close button is clicked
-    var closeButton = document.getElementsByClassName("close")[0];
-    closeButton.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
+    if (modal && modalMessage) {
+      modalMessage.textContent = message;
+      modal.style.display = "flex";
+    }
   }
 
-  document
-    .getElementById("movingForm")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
+  document.getElementById("closeModal")?.addEventListener("click", () => {
+    if (modal) modal.style.display = "none";
+  });
 
-      // Show the modal immediately to indicate form submission is in progress
-      showModal("Submitting form...");
+  document.getElementById("movingForm")?.addEventListener("submit", function (e) {
+    e.preventDefault();
+    showModal("Submitting your quote request...");
 
-      const formData = new FormData(this);
-      // "https://script.google.com/macros/s/AKfycby1fEjWC_C5nuRx3TQco1ZhVDYF7RbK1md-lHpaS0t2IaPcbGZbZDsz_nUMqWEzLWs9Iw/exec",
+    const formData = new FormData(this as HTMLFormElement);
 
-      fetch(
-        "https://script.google.com/macros/s/AKfycbz9DL93sk9jUE0_T9EvW4z53PClrruxQ5pPJx7PNnvMmHKbm1w3sXszkwlPY2QLCT1l/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
-      )
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.text();
-        })
-        .then((data) => {
-          if (data.startsWith("Error:")) {
-            throw new Error(data);
-          } else {
-            showModal("Form submitted successfully!");
-            document.getElementById("movingForm").reset();
-          }
-        })
-        .catch((error) => {
-          showModal("Form submission failed: " + error.message);
-        });
-    });
+    fetch(
+      "https://script.google.com/macros/s/AKfycbz9DL93sk9jUE0_T9EvW4z53PClrruxQ5pPJx7PNnvMmHKbm1w3sXszkwlPY2QLCT1l/exec",
+      { method: "POST", body: formData }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.text();
+      })
+      .then((data) => {
+        if (data.startsWith("Error:")) throw new Error(data);
+        showModal("✓ Quote request submitted! We'll contact you within a few hours.");
+        (document.getElementById("movingForm") as HTMLFormElement)?.reset();
+      })
+      .catch((error) => {
+        showModal("Submission failed: " + error.message);
+      });
+  });
 </script>

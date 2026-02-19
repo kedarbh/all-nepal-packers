@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  location: string;
+}
+
+const { location } = Astro.props;
+
+const services = [
+  {
+    title: "Residential Shifting",
+    description: `Professional household moving services in ${location}. We handle your furniture, appliances, and personal belongings with extreme care.`,
+    icon: "family",
+  },
+  {
+    title: "Office Relocation",
+    description: `Efficient office and business moving in ${location}. Minimize downtime with our organized and swift corporate relocation services.`,
+    icon: "secure",
+  },
+  {
+    title: "Vehicle Transportation",
+    description: `Safe and secure transport of your cars and bikes from ${location} to anywhere in Nepal using specialized carriers.`,
+    icon: "shooting-star",
+  },
+  {
+    title: "Packing & Unpacking",
+    description: `Expert multi-layer packing using high-quality materials to ensure your items are 100% safe during transit in ${location}.`,
+    icon: "10-plus",
+  },
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 max-w-screen-xl">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">
+        Our Services in <span class="text-primary">{location}</span>
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Comprehensive packing and moving solutions tailored for the {location} region. 
+        Reliable, professional, and affordable services.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        services.map((service) => (
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-borderGray hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+              <Icon name={service.icon} class="w-8 h-8 text-primary" />
+            </div>
+            <h3 class="text-xl font-bold text-dark mb-3">{service.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

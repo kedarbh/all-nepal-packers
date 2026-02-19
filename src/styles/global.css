@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-dark bg-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+.glass-header {
+  @apply sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-borderGray;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98];
+}
+
+.btn-accent {
+  @apply bg-accent text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98];
+}

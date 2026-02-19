@@ -1,0 +1,69 @@
+---
+import { Icon } from "astro-icon/components";
+
+const steps = [
+  {
+    number: "01",
+    title: "Request Quote",
+    description: "Fill our online form or call us for a free, no-obligation estimate.",
+    icon: "call",
+  },
+  {
+    number: "02",
+    title: "Expert Packing",
+    description: "Our professional team arrives with high-quality materials for secure packing.",
+    icon: "secure",
+  },
+  {
+    number: "03",
+    title: "Safe Transport",
+    description: "Your goods are transported in specialized closed containers with GPS tracking.",
+    icon: "flag",
+  },
+  {
+    number: "04",
+    title: "Unpacking & Setup",
+    description: "We carefully unload, unpack, and help you set up at your new destination.",
+    icon: "location",
+  },
+];
+---
+
+<section class="py-20 bg-dark text-white overflow-hidden relative">
+  <!-- Decoration -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -z-0"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent/20 rounded-full blur-[100px] -z-0"></div>
+
+  <div class="container mx-auto px-4 max-w-screen-xl relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Our Simple <span class="text-primary italic">Process</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        How we ensure a stress-free moving experience for you. From initial contact to final setup.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <!-- Background Line for Desktop -->
+      <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-800 -translate-y-12"></div>
+
+      {
+        steps.map((step) => (
+          <div class="relative group">
+            <div class="bg-white/5 border border-white/10 backdrop-blur-sm p-8 rounded-3xl hover:bg-white/10 transition-colors duration-300">
+              <div class="relative mb-8">
+                <div class="w-16 h-16 bg-primary-light rounded-2xl flex items-center justify-center text-dark shadow-lg shadow-primary-light/30 relative z-10 group-hover:scale-110 transition-transform duration-300">
+                   <Icon name={step.icon} class="w-8 h-8" />
+                </div>
+                <span class="absolute -top-4 -right-2 text-6xl font-black text-white/5 select-none">{step.number}</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">{step.title}</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

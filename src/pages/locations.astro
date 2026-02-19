@@ -1,52 +1,138 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+import CoverImage from "@assets/images/Packers-and-Movers-loading-boxes.jpg";
+
 const locations = await getCollection("location");
+const optimizedHero = await getImage({ src: CoverImage, width: 1920 });
 ---
 
 <MainLayout
-  title="Our Service Locations"
-  description="Find packers and movers near you"
+  title="Our Service Locations | All Nepal Packers and Movers"
+  description="Explore our wide range of service locations across Nepal. From Kathmandu to Pokhara, we provide professional packing and moving services everywhere."
 >
-  <main class="mx-auto max-w-screen-2xl px-6 lg:px-8">
-    <div class="py-20">
-      <h1 class="font-bold text-3xl pb-2">Citywise Packers and Movers</h1>
-    </div>
-    <div class="grid lg:grid-cols-3 gap-20">
-      {
-        locations.map((location) => (
-          <div class="border border-indigo-500/20 rounded  overflow-hidden shadow-lg flex flex-col ">
-            <a
-              href={`/location/${location.slug}`}
-              aria-label={location.data.title}
-            >
-              {location.data.bgImage && (
-                <Image
-                  src={location.data.bgImage}
-                  class="w-full h-60 object-cover"
-                  alt={location.data.title}
-                  aria-label={location.data.title}
-                />
-              )}
-              <div class="px-6 py-4 mb-auto">
-                <h2 class="text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <a
-                    href={`/location/${location.slug}`}
-                    class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2"
-                    aria-label={location.data.title}
-                  >
+  <!-- Premium Hero Section -->
+  <section class="relative py-20 lg:py-32 overflow-hidden bg-dark">
+    <div 
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0"
+      style={`background-image: url('${optimizedHero.src}'); filter: grayscale(1);`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-dark to-dark z-10"></div>
+    
+    <Wrapper class="relative z-20">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-light/10 border border-primary-light/30 rounded-full mb-6">
+          <Icon name="location" class="w-4 h-4 text-primary-light" />
+          <span class="text-xs font-bold uppercase tracking-widest text-primary-light">Extensive Network</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          Reliable Movers <span class="text-primary-light italic">Across Nepal</span>
+        </h1>
+        <p class="text-xl text-gray-400 leading-relaxed mb-8">
+          All Nepal Packers and Movers is proud to serve all major cities and remote corners of Nepal. 
+          Discover our local expertise in your city.
+        </p>
+      </div>
+    </Wrapper>
+  </section>
+
+  <main class="py-20 bg-gray-50/50">
+    <Wrapper>
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Citywise Packing & Moving</h2>
+          <div class="w-20 h-1.5 bg-primary rounded-full"></div>
+        </div>
+        <p class="text-gray-600 max-w-md">
+          Select your city to find detailed information about our localized services, 
+          pricing, and moving expertise in your region.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {
+          locations.map((location) => (
+            <div class="group relative bg-white rounded-[2.5rem] overflow-hidden border border-borderGray shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <a href={`/location/${location.slug}`} class="block">
+                <div class="relative h-72 overflow-hidden">
+                  {location.data.bgImage ? (
+                    <Image
+                      src={location.data.bgImage}
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      alt={location.data.title}
+                    />
+                  ) : (
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                       <Icon name="location" class="w-12 h-12 text-gray-400" />
+                    </div>
+                  )}
+                  <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60"></div>
+                  
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <div class="flex items-center gap-2 text-white/90 text-sm font-semibold mb-2">
+                      <Icon name="location" class="w-4 h-4 text-primary" />
+                      <span>{location.data.location}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-8">
+                  <h3 class="text-2xl font-bold text-dark group-hover:text-primary transition-colors mb-4">
                     {location.data.title}
-                  </a>
-                </h2>
-                <p class="mt-5 line-clamp-4 text-sm leading-6 text-gray-600">
-                  {location.data.introduction}
-                </p>
-              </div>
+                  </h3>
+                  <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-6">
+                    {location.data.introduction || `Professional packing and moving services in ${location.data.location}. Trusted by thousands of residents for safe and timely relocation.`}
+                  </p>
+                  
+                  <div class="flex items-center text-primary font-bold text-sm uppercase tracking-wider gap-2">
+                    View Local Services
+                    <Icon name="flag" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </main>
+
+  <!-- Coverage Summary Section -->
+  <section class="py-20 border-t border-borderGray">
+    <Wrapper>
+      <div class="bg-primary/5 rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 space-y-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-dark">Don't see your city?</h2>
+          <p class="text-gray-600 text-lg">
+            We provide door-to-door delivery services across all 77 districts of Nepal. 
+            Even if your city isn't listed above, we've got you covered.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="/contact" class="btn-primary">Connect with Experts</a>
+            <a href="tel:+9779843472589" class="flex items-center gap-2 px-6 py-3 font-bold text-dark">
+              <Icon name="call" class="w-5 h-5 text-primary" />
+              9843472589
             </a>
           </div>
-        ))
-      }
-    </div>
-  </main>
+        </div>
+        <div class="grid grid-cols-2 gap-6 w-full md:w-auto">
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-borderGray text-center">
+            <div class="text-3xl font-bold text-primary mb-1">77+</div>
+            <div class="text-xs text-gray-500 uppercase font-bold tracking-widest">Districts Covered</div>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-borderGray text-center">
+            <div class="text-3xl font-bold text-primary mb-1">24/7</div>
+            <div class="text-xs text-gray-500 uppercase font-bold tracking-widest">Support Line</div>
+          </div>
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-borderGray text-center text-center col-span-2">
+            <div class="text-3xl font-bold text-primary mb-1">100%</div>
+            <div class="text-xs text-gray-500 uppercase font-bold tracking-widest">Safe & Secure Transfer</div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
 </MainLayout>

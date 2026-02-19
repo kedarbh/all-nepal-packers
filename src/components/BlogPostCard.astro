@@ -9,35 +9,44 @@ interface Props {
 const { post } = Astro.props;
 
 const { title, publishedDate, coverImage, description } = post.data;
+
+const formattedDate = publishedDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
-<div class="rounded overflow-hidden shadow-lg flex flex-col">
-  <a href={`/blog/${post.slug}`} aria-label={title}>
+<article class="group flex flex-col rounded-3xl overflow-hidden border border-borderGray hover:border-primary-light/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 bg-white">
+  <a href={`/blog/${post.slug}/`} class="block overflow-hidden aspect-[16/9] shrink-0" aria-label={title}>
     <Image
       src={coverImage}
-      class="w-full object-cover"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
       alt={title}
-      aria-label={title}
     />
-    <div class="px-6 py-4 mb-auto">
-      <h3
-        class="mb-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-      >
-        <a
-          href={`/blog/${post.slug}/`}
-          class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2"
-          aria-label={title}>{title}</a
-        >
-      </h3>
-      <div class="flex items-center gap-x-4 text-xs">
-        <time datetime={publishedDate} class="text-gray-500"
-          >{publishedDate.toDateString()}</time
-        >
-      </div>
-
-      <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-        {description}
-      </p>
-    </div>
   </a>
-</div>
+  <div class="flex flex-col flex-1 p-7">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="h-1 w-6 rounded-full bg-primary-light"></div>
+      <time datetime={publishedDate.toISOString()} class="text-xs font-bold text-gray-400 uppercase tracking-widest">
+        {formattedDate}
+      </time>
+    </div>
+    <h3 class="text-lg font-bold text-dark leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-2">
+      <a href={`/blog/${post.slug}/`} aria-label={title}>{title}</a>
+    </h3>
+    <p class="text-sm text-gray-500 leading-relaxed line-clamp-3 flex-1">
+      {description}
+    </p>
+    <a
+      href={`/blog/${post.slug}/`}
+      class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary group-hover:text-primary-light transition-colors"
+      aria-label={`Read ${title}`}
+    >
+      Read Article
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
+</article>

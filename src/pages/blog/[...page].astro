@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import MainLayout from "@layouts/MainLayout.astro";
 import BlogPostListing from "@components/BlogPostListing.astro";
+import Wrapper from "@components/ui/Wrapper.astro";
 
 export async function getStaticPaths({ paginate }) {
   const posts = await getCollection("blog");
@@ -18,64 +19,59 @@ const { page } = Astro.props;
   title="Blog on Packing and Moving"
   description="Explore moving advice, tips, and guides on packing, and more. Make your next move stress-free and easy with our comprehensive blog!"
 >
-  <div class="bg-white py-12 sm:py-16">
-    <div class="mx-auto max-w-screen-2xl px-6 lg:px-8">
+  <!-- Hero Section -->
+  <section class="py-24 bg-dark text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-0"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-[100px] -z-0"></div>
+    <Wrapper class="relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-light/10 border border-primary-light/30 rounded-full mb-6">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary-light italic">Moving Tips & Guides</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black text-white leading-tight max-w-3xl">
+        Our <span class="text-primary-light italic">Blog</span>
+      </h1>
+      <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
+        Expert moving advice, packing tips, and relocation guides designed to make your next move smooth and stress-free.
+      </p>
+    </Wrapper>
+  </section>
 
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          From the blog
-        </h1>
-        <p class="mt-5 text-lg leading-8 text-gray-600">
-          Learn more about moving from our very moving blog.
-        </p>
-
-
+  <!-- Blog Grid -->
+  <section class="py-24 bg-secondary/30">
+    <Wrapper>
       <BlogPostListing blogPosts={page.data} />
 
-      <!-- Pagination Links -->
-      <div class="flex justify-between">
-        {
-          page.url.prev ? (
+      <!-- Pagination -->
+      {(page.url.prev || page.url.next) && (
+        <div class="flex justify-between items-center mt-20 pt-10 border-t border-borderGray">
+          {page.url.prev ? (
             <a
               href={page.url.prev}
-              class="inline-flex items-center my-10 mx-2 text-gray-700 hover:text-gray-600"
+              class="inline-flex items-center gap-3 px-8 py-4 font-bold text-primary border-2 border-primary rounded-xl hover:bg-primary hover:text-white transition-all"
             >
-              <svg
-                class="h-6 w-6 fill-current md:h-8 md:w-8"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
               </svg>
-              Recent posts
+              Newer Posts
             </a>
           ) : (
             <div />
-          )
-        }
-        {
-          page.url.next ? (
+          )}
+          {page.url.next ? (
             <a
               href={page.url.next}
-              class="inline-flex items-center my-10 mx-2 text-gray-700 hover:text-gray-600"
+              class="inline-flex items-center gap-3 px-8 py-4 font-bold text-primary border-2 border-primary rounded-xl hover:bg-primary hover:text-white transition-all"
             >
               Older Posts
-              <svg
-                class="h-6 w-6 fill-current md:h-8 md:w-8"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
               </svg>
             </a>
           ) : (
             <div />
-          )
-        }
-      </div>
-    </div>
-  </div>
+          )}
+        </div>
+      )}
+    </Wrapper>
+  </section>
 </MainLayout>

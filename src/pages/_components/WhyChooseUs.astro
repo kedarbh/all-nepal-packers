@@ -1,0 +1,146 @@
+---
+import Wrapper from "@components/ui/Wrapper.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import HeroImage from "@assets/images/movers-working-in-delivery-van.webp";
+
+const benefits = [
+    {
+        title: "Experienced Staff",
+        text: "Our team is trained in the latest packing and moving techniques.",
+        icon: "10-plus",
+    },
+    {
+        title: "Safe Packing Materials",
+        text: "We use only the highest quality bubble wrap, boxes, and tapes.",
+        icon: "secure",
+    },
+    {
+        title: "Affordable Pricing",
+        text: "Competitive rates with no hidden costs. Quality service for every budget.",
+        icon: "hand-heart-fill",
+    },
+    {
+        title: "Timely Delivery",
+        text: "We value your time and ensure your move stays on track.",
+        icon: "shooting-star",
+    },
+    {
+        title: "Fully Insured",
+        text: "Complete peace of mind with our comprehensive transit insurance.",
+        icon: "location-filled",
+    },
+];
+---
+
+<section class="py-24 bg-secondary/50 overflow-hidden">
+    <Wrapper>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Image Column -->
+            <div class="relative lg:order-last">
+                <div
+                    class="rounded-3xl overflow-hidden shadow-2xl relative z-10"
+                >
+                    <Image
+                        src={HeroImage}
+                        alt="Professional moving team"
+                        class="w-full h-[600px] object-cover"
+                    />
+                    <!-- Stats Overlay -->
+                    <div
+                        class="absolute bottom-10 left-10 right-10 bg-white/90 backdrop-blur p-6 rounded-2xl shadow-xl flex justify-between items-center border border-white"
+                    >
+                        <div>
+                            <p
+                                class="text-sm font-bold text-primary uppercase mb-1"
+                            >
+                                Success Rate
+                            </p>
+                            <p class="text-4xl font-black text-dark">100%</p>
+                        </div>
+                        <div class="h-10 w-px bg-gray-200"></div>
+                        <div>
+                            <p
+                                class="text-sm font-bold text-primary uppercase mb-1"
+                            >
+                                Safety First
+                            </p>
+                            <p class="text-4xl font-black text-dark">
+                                Guaranteed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decoration -->
+                <div
+                    class="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full -z-10 blur-3xl"
+                >
+                </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="space-y-12">
+                <div class="space-y-4">
+                    <h2
+                        class="text-xs font-bold text-accent uppercase tracking-widest"
+                    >
+                        Why All Nepal Packers
+                    </h2>
+                    <h3
+                        class="text-3xl md:text-5xl font-bold text-dark leading-tight"
+                    >
+                        Committed to <span class="text-primary-light italic"
+                            >Excellence</span
+                        > in Every Move
+                    </h3>
+                    <p class="text-lg text-gray-600">
+                        We don't just move boxes; we move your life. Our
+                        commitment to safety and professionalism sets us apart
+                        from the rest.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    {
+                        benefits.map((benefit) => (
+                            <div class="flex gap-5 group">
+                                <div class="shrink-0 w-12 h-12 rounded-xl bg-white border border-borderGray flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm group-hover:shadow-md">
+                                    <Icon name={benefit.icon} class="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-dark mb-1">
+                                        {benefit.title}
+                                    </h4>
+                                    <p class="text-sm text-gray-500 leading-relaxed">
+                                        {benefit.text}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <div>
+                    <a
+                        href="/about"
+                        class="inline-flex items-center gap-2 font-bold text-primary hover:gap-4 transition-all"
+                    >
+                        Learn more about our company
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </Wrapper>
+</section>
