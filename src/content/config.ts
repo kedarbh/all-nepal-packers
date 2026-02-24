@@ -25,6 +25,10 @@ const locationCollection = defineCollection({
     bgImage: image().optional(),
     bgColor: z.string().optional(),
     tags: z.array(z.string()),
+    localHighlights: z.array(z.object({
+      title: z.string(),
+      description: z.string(),
+    })).optional(),
   }),
 });
 

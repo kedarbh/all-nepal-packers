@@ -4,7 +4,7 @@ icon: secure
 description: Specialized vehicle transport services for secure motorbike relocation across Nepal.
 summary: Safe and secure motorbike transport services from Kathmandu to any city in Nepal by All Nepal Packers and Movers.
 coverImage:
-  src: "@assets/images/hero-image.jpg"
+  src: "@assets/images/services/motorbike-moving.jpg"
   alt: Professional motorbike packing and transport service in Nepal
 ---
 

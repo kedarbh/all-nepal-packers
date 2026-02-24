@@ -14,6 +14,15 @@ tags:
     "nakkhu",
     "Bhaisepati",
   ]
+localHighlights:
+  - title: "Navigating Heritage Zones"
+    description: "Lalitpur's core areas, especially around Patan Durbar Square and Mangal Bazar, have strict traffic and vehicle size restrictions. Our teams expertly handle logistics in these heritage zones without causing disruptions."
+  - title: "Premium Residential Moves"
+    description: "Whether shifting to VIP areas like Bhaisepati or Sanepa, we provide white-glove packing services tailored for high-value furniture and sensitive equipment."
+  - title: "Corporate Relocations"
+    description: "For offices moving in and out of the expanding commercial hubs in Lalitpur, such as Jhamsikhel or Jawalakhel, we guarantee safe and swift transitions to get your business running quickly."
+  - title: "Industrial & Warehouse Shifting"
+    description: "Our heavy-duty logistics fleet safely manages warehouse goods and industrial equipment transfers within the Lalitpur industrial estate districts."
 ---
 
 <!-- Photo by <a href="https://unsplash.com/@shaouraav?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Shaouraav Shreshtha</a> on <a href="https://unsplash.com/photos/brown-and-gray-concrete-buildings-during-daytime-ubBkQoPergg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>

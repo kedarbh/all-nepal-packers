@@ -4,7 +4,7 @@ icon: secure
 description: Efficient office and business relocation services designed to minimize downtime and protect your assets.
 summary: Professional office shifting, warehouse relocation, and corporate moving services in Nepal by All Nepal Packers and Movers.
 coverImage:
-  src: "@assets/images/hero-image.jpg"
+  src: "@assets/images/services/commercial-moving.jpg"
   alt: Corporate office relocation in progress
 ---
 

@@ -4,7 +4,7 @@ icon: hand-heart-fill
 description: Comprehensive packing and unpacking services using top-quality materials to protect your valuables.
 summary: Professional packing and unpacking services in Nepal by All Nepal Packers and Movers. We use high-quality bubble wrap, corrugated sheets, and cartons.
 coverImage:
-  src: "@assets/images/hero-image.jpg"
+  src: "@assets/images/services/packing-and-unpacking.jpg"
   alt: Professional packers carefully wrapping fragile items
 ---
 

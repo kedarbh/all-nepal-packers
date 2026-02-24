@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 
 import { getCollection } from "astro:content";
 
-const services = await getCollection("services");
+const services = (await getCollection("services")).filter(service => service.slug !== "motorbike-moving");
 ---
 
 <section class="py-24 bg-secondary/30 relative overflow-hidden" id="services">
@@ -43,8 +43,8 @@ const services = await getCollection("services");
             <p class="text-gray-600 mb-6 leading-relaxed line-clamp-3">
               {service.data.summary}
             </p>
-            <a href={`/services/${service.slug}`} class="inline-flex items-center gap-2 text-sm font-bold text-primary group-hover:gap-3 transition-all">
-              Book Now
+            <a href={`/services/${service.slug}`} class="inline-flex items-center gap-2 text-sm font-bold text-primary group-hover:gap-3 transition-all" title={`View details for ${service.data.title}`}>
+              {service.data.title} Details
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

@@ -3,9 +3,10 @@ import MainLayout from "@layouts/MainLayout.astro";
 import Wrapper from "@components/ui/Wrapper.astro";
 import { Icon } from "astro-icon/components";
 
-const title = "Contact All Nepal Packers and Movers";
+const title = "Contact All Nepal Packers and Movers | Kathmandu Packers and Movers Support";
 const description =
-  "Contact best moving company in Nepal for moving services like House Shifting, Office Shifting, Flat Shifting, Packers and Movers for DIY moves. Call us at +977-9843472589 for free moving quote.";
+  "Contact the best moving company in Nepal for moving services like House Shifting, Office Shifting, and Flat Shifting. Call us at +977-9843472589 for a free moving quote.";
+const tags = "contact packers and movers, Kathmandu movers contact, house shifting support Nepal, moving quote Nepal, All Nepal Packers phone number";
 
 const contactDetails = [
   {
@@ -29,7 +30,7 @@ const contactDetails = [
 ];
 ---
 
-<MainLayout {title} {description}>
+<MainLayout title={title} description={description} tags={tags}>
   <!-- Hero -->
   <section class="py-24 bg-dark text-white relative overflow-hidden">
     <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-0"></div>
@@ -84,7 +85,7 @@ const contactDetails = [
             <div class="space-y-2">
               <div class="flex justify-between text-sm">
                 <span class="text-gray-400">Sunday – Friday</span>
-                <span class="font-semibold text-white">7:00 AM – 7:00 PM</span>
+                <span class="font-semibold text-white">7:00 AM – 10:00 PM</span>
               </div>
               <div class="flex justify-between text-sm">
                 <span class="text-gray-400">Saturday</span>
@@ -255,14 +256,12 @@ const contactDetails = [
           .then((res) => { if (!res.ok) throw new Error("Network response was not ok"); return res.text(); })
           .then((data) => {
             if (data.startsWith("Error:")) throw new Error(data);
-            successMessage?.classList.remove("hidden");
-            successMessage?.classList.add("block", "bg-green-50", "border-green-200", "text-green-700");
+            successMessage!.className = "text-sm mb-6 border p-4 rounded-xl block bg-green-50 border-green-200 text-green-700";
             successMessage!.innerHTML = "✓ Message sent successfully! We'll get back to you shortly.";
             (document.getElementById("contactForm") as HTMLFormElement)?.reset();
           })
           .catch((error) => {
-            successMessage?.classList.remove("hidden");
-            successMessage?.classList.add("block", "bg-red-50", "border-red-200", "text-red-600");
+            successMessage!.className = "text-sm mb-6 border p-4 rounded-xl block bg-red-50 border-red-200 text-red-600";
             successMessage!.innerHTML = "Form submission failed: " + error.message;
           });
       }

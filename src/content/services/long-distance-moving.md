@@ -4,7 +4,7 @@ icon: location-filled
 description: Reliable inter-city moving services connecting Kathmandu to all major cities across Nepal.
 summary: All Nepal Packers and Movers provides secure long-distance moving services from Kathmandu to Pokhara, Butwal, Biratnagar, and beyond.
 coverImage:
-  src: "@assets/images/hero-image.jpg"
+  src: "@assets/images/services/long-distance-moving.jpg"
   alt: Long distance moving truck on the highway in Nepal
 ---
 

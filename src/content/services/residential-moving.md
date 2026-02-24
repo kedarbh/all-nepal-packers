@@ -4,7 +4,7 @@ icon: location-filled
 description: Stress-free home relocation services across Nepal. We handle everything from packing to final setup with care.
 summary: All Nepal Packers and Movers offers professional residential moving services, including house, flat, and apartment shifting in Kathmandu and beyond.
 coverImage:
-  src: "@assets/images/hero-image.jpg"
+  src: "@assets/images/services/residential-moving.jpg"
   alt: Professional movers packing a residential house in Nepal
 ---
 

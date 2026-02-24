@@ -70,16 +70,6 @@ const serviceDetails: Record<string, { title: string; description: string }[]> =
   ]
 };
 
-const serviceImages: Record<string, string> = {
-  "residential-moving": "/images/services/residential-moving.jpg",
-  "commercial-moving": "/images/services/commercial-moving.jpg",
-  "long-distance-moving": "/images/services/long-distance-moving.jpg",
-  "motorbike-moving": "/images/services/motorbike-moving.jpg",
-  "packing-and-unpacking": "/images/services/packing-and-unpacking.jpg",
-  "specialized-moving": "/images/services/specialized-moving.jpg",
-  "local-moving": "/images/services/local-moving.jpg"
-};
-
 const trustScores: Record<string, { badge: string; title: string; description: string }> = {
   "residential-moving": {
     badge: "Family First",
@@ -119,17 +109,24 @@ const trustScores: Record<string, { badge: string; title: string; description: s
 };
 
 const items = serviceDetails[service.slug] || [];
-const image = serviceImages[service.slug] || "https://images.unsplash.com/photo-1519750783826-e2420f4d6d05?q=80&w=1200";
+const coverImage = service.data.coverImage;
 const trustScore = trustScores[service.slug] || {
   badge: "Trust Score",
   title: "100% Secure Move",
   description: "Your belongings are fully insured and handled with extreme care by our experts."
 };
+const enhancedTags = [
+  (service.data as any).tags,
+  `${service.data.title} in Nepal`,
+  `professional ${service.data.title.toLowerCase()} service`,
+  `packers and movers Nepal`
+].filter(Boolean).join(", ");
 ---
 
 <MainLayout 
-  title={`${service.data.title} | All Nepal Packers and Movers`}
+  title={`${service.data.title}`}
   description={service.data.summary}
+  tags={enhancedTags}
 >
   <ServiceHero 
     title={service.data.title}
@@ -147,8 +144,8 @@ const trustScore = trustScores[service.slug] || {
   <ServiceDetails 
     title={service.data.title} 
     items={items} 
-    image={image}
-    imageAlt={`Professional illustration for ${service.data.title}`}
+    image={coverImage.src}
+    imageAlt={coverImage.alt}
     trustScore={trustScore}
   />
 

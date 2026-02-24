@@ -4,7 +4,7 @@ icon: location
 description: Fast, reliable, and stress-free local relocation services within Kathmandu and major cities across Nepal.
 summary: All Nepal Packers and Movers offers expert local moving services for homes and offices, ensuring a smooth transition within your city.
 coverImage:
-  src: "@assets/images/hero-image.jpg"
+  src: "@assets/images/services/local-moving.jpg"
   alt: Professional local moving team in action in Kathmandu
 ---
 

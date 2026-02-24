@@ -4,7 +4,7 @@ icon: shooting-star
 description: Custom relocation solutions for heavy, delicate, or high-value items like pianos, safes, and medical equipment.
 summary: Expert handling for specialized items including piano moving, industrial equipment transport, and medical machinery relocation in Nepal.
 coverImage:
-  src: "@assets/images/hero-image.jpg"
+  src: "@assets/images/services/specialized-moving.jpg"
   alt: Movers handling a high-value specialized piece of equipment
 ---
 

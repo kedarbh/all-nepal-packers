@@ -37,8 +37,9 @@ const serviceIcons: Record<string, string> = {
 />
 
 <MainLayout 
-  title="Safe & Reliable Moving Services in Nepal"
-  description="Explore our wide range of professional moving services including residential, commercial, long-distance, and specialized relocation solutions across Nepal."
+  title="Moving Services | Best Packers and Movers in Nepal"
+  description="Explore professional packing and moving services in Nepal, including house shifting, office relocation, commercial moving, and long-distance transport. Safe, reliable, and affordable."
+  tags="moving services Nepal, house shifting Kathmandu, office relocation Nepal, professional packers and movers, commercial moving Nepal, long-distance movers"
 >
   <!-- Modern Hero Section -->
   <section class="relative py-24 lg:py-32 bg-dark overflow-hidden">
@@ -88,8 +89,8 @@ const serviceIcons: Record<string, string> = {
               {service.data.description}
             </p>
             
-            <a href={`/services/${service.slug}`} class="flex items-center text-primary font-bold text-sm uppercase tracking-wider gap-2">
-              Learn More
+            <a href={`/services/${service.slug}`} class="flex items-center text-primary font-bold text-sm uppercase tracking-wider gap-2" title={`Learn more about ${service.data.title}`}>
+              {service.data.title} Details
               <Icon name="flag" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>

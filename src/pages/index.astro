@@ -20,8 +20,9 @@ const blogEntries = (await getCollection("blog")).sort(
 ---
 
 <MainLayout
-  title="All Nepal Packers and Movers | Best Movers in Nepal"
+  title="Best Movers in Nepal"
   description="Professional packers and movers in Nepal offering house shifting, office relocation, and secure moving services. Trustworthy, affordable, and safe."
+  tags="packers and movers in Nepal, best movers in Nepal, house shifting services Kathmandu, office relocation Nepal, local movers Kathmandu, All Nepal Packers"
 >
   <Hero />
   <TrustIndicators />
@@ -38,7 +39,7 @@ const blogEntries = (await getCollection("blog")).sort(
             From Our <span class="text-primary-light italic">Blog</span>
           </h3>
         </div>
-        <a href="/blog" class="btn-primary px-8 py-3 text-sm">View All Posts</a>
+        <a href="/blog" class="btn-primary px-8 py-3 text-sm" title="Read all our moving tips and blog posts">View All Moving Tips & Posts</a>
       </div>
       <BlogPostListing blogPosts={blogEntries} />
     </Wrapper>

@@ -26,13 +26,20 @@ const { data, render } = location;
 const { Content } = await render();
 const bgImage: any = data.bgImage;
 const optimizedImage = await getImage({ src: bgImage, width: 1920 });
+const enhancedTags = [
+  data.tags,
+  `packers and movers in ${data.location}`,
+  `house shifting ${data.location}`,
+  `best movers ${data.location}`,
+  `local moving services ${data.location}`
+].filter(Boolean).join(", ");
 ---
 
 <MainLayout
   title={data.title}
   description={data.description}
   coverImage={data.bgImage}
-  tags={data.tags}
+  tags={enhancedTags}
   pageType="website"
 >
   <!-- Modern Hero Section -->
@@ -105,6 +112,37 @@ const optimizedImage = await getImage({ src: bgImage, width: 1920 });
 
   <!-- High-Quality Service Showcase -->
   <LocalServices location={data.location} />
+
+  <!-- Local Highlights Content for SEO and Trust -->
+  {data.localHighlights && data.localHighlights.length > 0 && (
+    <section class="py-20 bg-white">
+      <Wrapper>
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">
+            Moving to <span class="text-primary italic">{data.location}</span>: Local Expertise
+          </h2>
+          <div class="w-20 h-1.5 bg-primary rounded-full mx-auto mb-8"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Our local {data.location} branch understands the unique logistics of moving in this area. Here is what makes our local service stand out:
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {data.localHighlights.map((highlight) => (
+            <div class="bg-gray-50 p-8 rounded-2xl border border-borderGray hover:shadow-lg transition-shadow">
+              <h3 class="text-xl font-bold text-dark mb-3 flex items-center gap-3">
+                <Icon name="location" class="w-6 h-6 text-primary" />
+                {highlight.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                {highlight.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Wrapper>
+    </section>
+  )}
 
   <!-- Our Moving Process -->
   <LocationProcess />
