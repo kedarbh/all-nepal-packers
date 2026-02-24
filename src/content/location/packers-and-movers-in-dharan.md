@@ -3,7 +3,7 @@ title: "Packers and Movers in Dharan"
 location: "Dharan"
 description: "The best packers and movers in Dharan area providing moving solutions that prioritize safety and timeliness."
 introduction: ""
-bgImage: "./images/hero-image.png"
+bgImage: "./images/dharan-hero.png"
 bgColor: ""
 tags:
   [

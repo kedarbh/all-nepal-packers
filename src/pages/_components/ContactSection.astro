@@ -93,7 +93,7 @@ import { Icon } from "astro-icon/components";
                 >
                     <p class="text-white font-bold mb-2">Office Hours:</p>
                     <p class="text-gray-300/70">Sun - Fri: 7:00 AM - 10:00 PM</p>
-                    <p class="text-gray-300/70">Sat: Closed (Inquiries Open)</p>
+                    <p class="text-gray-300/70">Sat - 9:00 AM – 5:00 PM</p>
                 </div>
             </div>
 
@@ -103,23 +103,24 @@ import { Icon } from "astro-icon/components";
             >
                 <div id="contactSectionMessage" class="hidden text-sm mb-6 border p-4 rounded-xl"></div>
                 <form class="space-y-6" id="quoteForm">
+                    <div class="space-y-2">
+                        <label
+                            for="full-name"
+                            class="text-xs font-bold uppercase tracking-wider text-gray-400"
+                            >Full Name</label
+                        >
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            id="full-name"
+                            autocomplete="given-name"
+                            placeholder="Ram Sharma"
+                            class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                        />
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label
-                                for="full-name"
-                                class="text-xs font-bold uppercase tracking-wider text-gray-400"
-                                >Full Name</label
-                            >
-                            <input
-                                type="text"
-                                name="name"
-                                required
-                                id="full-name"
-                                autocomplete="given-name"
-                                placeholder="Ram Sharma"
-                                class="w-full rounded-xl border border-borderGray bg-gray-50 px-4 py-3 text-dark text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                                />
-                        </div>
                         <div class="space-y-2">
                             <label
                                 for="phone-number"
@@ -209,35 +210,7 @@ import { Icon } from "astro-icon/components";
                         </div>
                     </div>
 
-                    <div class="space-y-2">
-                        <label
-                            for="date"
-                            class="text-xs font-bold uppercase tracking-wider text-gray-400"
-                            >Preferred Moving Date</label
-                        >
-                        <input
-                            type="date"
-                            id="date"
-                            name="date"
-                            required
-                            class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                        />
-                    </div>
 
-                    <div class="space-y-2">
-                        <label
-                            for="message"
-                            class="text-xs font-bold uppercase tracking-wider text-gray-400"
-                            >Message (Optional)</label
-                        >
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="4"
-                            placeholder="How can we help you?"
-                            class="w-full px-4 py-3 bg-secondary border border-borderGray rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-gray-300"
-                        ></textarea>
-                    </div>
 
                     <button
                         type="submit"

@@ -54,13 +54,10 @@ const services = [
 
     <!-- Mobile menu button -->
     <div class="flex lg:hidden items-center gap-4">
-      <a href="tel:+9779843472589" class="p-2 text-primary-light">
-        <Icon name="call" class="w-6 h-6" />
-      </a>
       <button
         id="mobileMenuBtn"
         type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white lg:text-dark"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-dark hover:text-primary transition-colors"
       >
         <span class="sr-only">Open main menu</span>
         <svg
@@ -162,10 +159,9 @@ const services = [
     </div>
   </nav>
 
-  <!-- Mobile Navigation Overlay (Drawer) -->
   <div
     id="mobileNavMenu"
-    class="fixed inset-0 z-[300] invisible lg:hidden"
+    class="fixed inset-0 z-[9999] invisible lg:hidden"
   >
     <!-- Sharp Backdrop -->
     <div
@@ -177,7 +173,7 @@ const services = [
     <!-- Content Drawer -->
     <div
       id="mobileDrawer"
-      class="absolute inset-y-0 right-0 w-[85%] max-w-sm bg-white shadow-2xl flex flex-col translate-x-full transition-transform duration-500 ease-out z-[301]"
+      class="absolute top-0 right-0 w-full h-[100dvh] bg-white shadow-2xl flex flex-col translate-x-full transition-transform duration-500 ease-out z-[10000]"
     >
       <div class="p-8 flex items-center justify-between border-b border-gray-100 bg-white">
         <Logo visibility="block" />
@@ -193,10 +189,10 @@ const services = [
 
       <div class="flex-1 overflow-y-auto px-8 py-10 space-y-12">
         <nav class="space-y-10">
-          <a href="/" class="block text-3xl font-black text-dark hover:text-primary transition-colors tracking-tight">Home</a>
+          <a href="/" class="block text-2xl font-bold font-display text-dark hover:text-primary transition-colors">Home</a>
           
           <div class="space-y-6">
-            <p class="text-[11px] font-black text-primary/50 uppercase tracking-[0.3em] mb-4">Our Services</p>
+            <p class="text-2xl font-bold font-display text-dark mb-4">Our Services</p>
             <div class="grid grid-cols-1 gap-3">
               {services.map((service) => (
                 <a href={service.href} class="flex items-center gap-4 p-4 rounded-2xl bg-secondary/50 hover:bg-primary/5 transition-all text-sm font-bold text-dark group border border-transparent hover:border-primary/10">
@@ -212,9 +208,9 @@ const services = [
           <div class="h-px bg-gray-100"></div>
 
           <div class="space-y-6">
-            <a href="/locations" class="block text-xl font-bold text-dark hover:text-primary transition-colors">Locations</a>
-            <a href="/blog" class="block text-xl font-bold text-dark hover:text-primary transition-colors">Latest News</a>
-            <a href="/contact" class="block text-xl font-bold text-dark hover:text-primary transition-colors">Contact Us</a>
+            <a href="/locations" class="block text-2xl font-bold font-display text-dark hover:text-primary transition-colors">Locations</a>
+            <a href="/blog" class="block text-2xl font-bold font-display text-dark hover:text-primary transition-colors">Latest News</a>
+            <a href="/contact" class="block text-2xl font-bold font-display text-dark hover:text-primary transition-colors">Contact Us</a>
           </div>
         </nav>
       </div>
@@ -240,34 +236,62 @@ const services = [
 </Wrapper>
 
 <script>
-  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-  const mobileNavMenu = document.getElementById("mobileNavMenu");
-  const mobileDrawer = document.getElementById("mobileDrawer");
-  const backdrop = document.getElementById("mobileNavBackdrop");
-  const closeBtn = document.getElementById("closeMobileMenu");
+  function setupMobileNav() {
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileNavMenu = document.getElementById("mobileNavMenu");
+    const mobileDrawer = document.getElementById("mobileDrawer");
+    const backdrop = document.getElementById("mobileNavBackdrop");
+    const closeBtn = document.getElementById("closeMobileMenu");
 
-  function openMenu() {
-    mobileNavMenu?.classList.remove("invisible");
-    setTimeout(() => {
-      backdrop?.classList.remove("bg-dark/0", "backdrop-blur-none");
-      backdrop?.classList.add("bg-dark/60", "backdrop-blur-sm");
-      mobileDrawer?.classList.remove("translate-x-full");
-    }, 10);
-    document.body.style.overflow = "hidden";
-  }
+    // Teleport menu to body to escape any header stacking contexts
+    if (mobileNavMenu && mobileNavMenu.parentNode !== document.body) {
+      document.body.appendChild(mobileNavMenu);
+    }
 
-  function closeMenu() {
-    mobileDrawer?.classList.add("translate-x-full");
-    backdrop?.classList.remove("bg-dark/60", "backdrop-blur-sm");
-    backdrop?.classList.add("bg-dark/0", "backdrop-blur-none");
+    // Clear previous event listeners if setup runs multiple times
+    const newMobileMenuBtn = mobileMenuBtn?.cloneNode(true) as HTMLElement;
+    const newCloseBtn = closeBtn?.cloneNode(true) as HTMLElement;
+    const newBackdrop = backdrop?.cloneNode(true) as HTMLElement;
     
-    setTimeout(() => {
-      mobileNavMenu?.classList.add("invisible");
-    }, 500);
-    document.body.style.overflow = "";
+    mobileMenuBtn?.parentNode?.replaceChild(newMobileMenuBtn, mobileMenuBtn);
+    closeBtn?.parentNode?.replaceChild(newCloseBtn, closeBtn);
+    backdrop?.parentNode?.replaceChild(newBackdrop, backdrop);
+
+    function openMenu() {
+      mobileNavMenu?.classList.remove("invisible");
+      setTimeout(() => {
+        newBackdrop?.classList.remove("bg-dark/0", "backdrop-blur-none");
+        newBackdrop?.classList.add("bg-dark/60", "backdrop-blur-sm");
+        mobileDrawer?.classList.remove("translate-x-full");
+      }, 10);
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      mobileDrawer?.classList.add("translate-x-full");
+      newBackdrop?.classList.remove("bg-dark/60", "backdrop-blur-sm");
+      newBackdrop?.classList.add("bg-dark/0", "backdrop-blur-none");
+      
+      setTimeout(() => {
+        mobileNavMenu?.classList.add("invisible");
+      }, 500);
+      document.body.style.overflow = "";
+    }
+
+    newMobileMenuBtn?.addEventListener("click", openMenu);
+    newCloseBtn?.addEventListener("click", closeMenu);
+    newBackdrop?.addEventListener("click", closeMenu);
+
+    // Close menu when a link inside the drawer is clicked
+    const mobileLinks = mobileDrawer?.querySelectorAll('a');
+    mobileLinks?.forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
   }
 
-  mobileMenuBtn?.addEventListener("click", openMenu);
-  closeBtn?.addEventListener("click", closeMenu);
-  backdrop?.addEventListener("click", closeMenu);
+  // Setup immediately
+  setupMobileNav();
+
+  // Setup on Astro page transitions
+  document.addEventListener("astro:page-load", setupMobileNav);
 </script>

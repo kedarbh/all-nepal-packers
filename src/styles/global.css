@@ -15,7 +15,7 @@
 }
 
 .glass-header {
-  @apply sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-borderGray;
+  @apply sticky top-0 z-50 border-b border-borderGray;
 }
 
 .btn-primary {
