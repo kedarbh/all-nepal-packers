@@ -32,14 +32,14 @@ const blogEntries = (await getCollection("blog")).sort(
 
   <section class="py-24 bg-secondary/30">
     <Wrapper>
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-        <div class="max-w-2xl">
+      <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 md:mb-16 gap-6 md:gap-8">
+        <div class="max-w-2xl text-left">
           <h2 class="text-xs font-bold text-accent uppercase tracking-widest mb-4">Latest Updates</h2>
           <h3 class="text-3xl md:text-5xl font-bold text-dark leading-tight">
             From Our <span class="text-primary-light italic">Blog</span>
           </h3>
         </div>
-        <a href="/blog" class="btn-primary px-8 py-3 text-sm" title="Read all our moving tips and blog posts">View All Moving Tips & Posts</a>
+        <a href="/blog" class="btn-primary px-8 py-3 text-sm whitespace-nowrap" title="Read all our moving tips and blog posts">View All Moving Tips & Posts</a>
       </div>
       <BlogPostListing blogPosts={blogEntries} />
     </Wrapper>
